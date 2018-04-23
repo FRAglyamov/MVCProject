@@ -1,0 +1,19 @@
+﻿@model IEnumerable<MVCProject.Models.Work>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach (var sub in Model)
+{
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Title:= @sub.Title |
+            <a asp-action="Edit" asp-route-id="@sub.Id">Edit</a>
+        </div>
+    </div>
+</div>
+}
+

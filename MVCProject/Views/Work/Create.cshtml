@@ -1,0 +1,49 @@
+﻿<script type="text/javascript" src="~/js/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#subSelect").change(function () {
+            //alert($("#subSelect :selected").text());
+            $("#work_sub_id").val($("#subSelect :selected").val());
+        });
+    });
+</script>
+
+@{
+    ViewData["Title"] = "CreateWork";
+}
+
+<h2>CreateWork</h2>
+
+<form method="post" asp-controller="Work" asp-action="AddWork">
+<div class="form-group">
+    <label for="work_title">Title:</label>
+    <input type="text" class="form-control" name="work_title">
+</div>
+<div class="form-group">
+    <label for="work_text">Text:</label>
+    <textarea class="form-control" rows="5" name="work_text"></textarea>
+</div>
+
+    <label for="subSelect">Theme:</label>
+    <select id="subSelect">
+        <option value=""></option>
+        @{
+            foreach (var item in ViewBag.Disciplines)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        }
+    </select>
+
+    <div class="form-group">
+        <input type="hidden" class="form-control" id="work_sub_id" name="discp_id">
+    </div>
+
+        <br><br>
+        <div>
+            <button type="submit" class="btn btn-success">Отправить!</button>
+        </div>
+</form>
+
+
+
