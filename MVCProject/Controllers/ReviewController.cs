@@ -25,8 +25,7 @@ namespace MVCProject.Controllers
         }
         public IActionResult Index()
         {
-            var otherWorks = _context.Works.Where(x => x.UserId != _userManager.GetUserId(User)).ToList();
-            return View(otherWorks);
+            return View();
         }
         public IActionResult Create()
         {
@@ -38,26 +37,21 @@ namespace MVCProject.Controllers
             return View(_repo.Select(id));
         }
 
-        /*public IActionResult AA(int id, string qinput_mark)
+        public ActionResult GetJson()
         {
-            return Content(qinput_mark);
-        }*/
+            var otherWorks = _context.Works.Where(x => x.UserId != _userManager.GetUserId(User)).ToList();
+            return Json(otherWorks);
+        }
+
         public IActionResult Check(int id, string input_mark)
         {
-            //return Content(id.ToString() + input_mark);
 
             double mark;
             Double.TryParse(input_mark, NumberStyles.Any, CultureInfo.InvariantCulture, out mark);
 
-            //double mark;
-            //mark = Convert.ToDouble(input_mark);-
-            //return Content((mark).ToString());
-
             using (_context)
             {
                 var work = _context.Works.Where(x => x.Id == id).FirstOrDefault();
-                /*if (work.FirstMarkUserId == _userManager.GetUserId(User) || work.SecondMarkUserId == _userManager.GetUserId(User) || work.ThirdMarkUserId == _userManager.GetUserId(User))
-                    return RedirectToAction("Index");*/
                 if (work.FirstMarkUserId == _userManager.GetUserId(User))
                 { work.FirstMark = mark; goto m1; }
                 else if (work.SecondMarkUserId == _userManager.GetUserId(User))
@@ -88,7 +82,7 @@ namespace MVCProject.Controllers
                     double first = Convert.ToDouble(work.FirstMark);
                     double second = Convert.ToDouble(work.SecondMark);
                     double third = Convert.ToDouble(work.ThirdMark);
-                    work.FinalMark = first + second + third / 3.0;
+                    work.FinalMark = (first + second + third) / 3.0;
                 }
                 _context.SaveChanges();
             }

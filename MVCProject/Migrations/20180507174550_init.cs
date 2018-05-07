@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace MVCProject.Migrations
 {
-    public partial class Init : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -68,55 +68,7 @@ namespace MVCProject.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Exams",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    DisciplineId = table.Column<int>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    StudentId = table.Column<int>(nullable: false),
-                    TeacherId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Exams", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Groups",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    DisciplineId = table.Column<int>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    Size = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Groups", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Teachers",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Birthdate = table.Column<DateTime>(nullable: false),
-                    LessonId = table.Column<int>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    Sex = table.Column<string>(nullable: true),
-                    Surname = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Teachers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Work",
+                name: "Works",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -135,7 +87,7 @@ namespace MVCProject.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Work", x => x.Id);
+                    table.PrimaryKey("PK_Works", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -305,16 +257,7 @@ namespace MVCProject.Migrations
                 name: "Disciplines");
 
             migrationBuilder.DropTable(
-                name: "Exams");
-
-            migrationBuilder.DropTable(
-                name: "Groups");
-
-            migrationBuilder.DropTable(
-                name: "Teachers");
-
-            migrationBuilder.DropTable(
-                name: "Work");
+                name: "Works");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

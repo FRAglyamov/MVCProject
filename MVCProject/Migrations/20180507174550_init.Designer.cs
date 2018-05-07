@@ -11,8 +11,8 @@ using System;
 namespace MVCProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20180425053243_Init")]
-    partial class Init
+    [Migration("20180507174550_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -141,40 +141,6 @@ namespace MVCProject.Migrations
                     b.ToTable("Disciplines");
                 });
 
-            modelBuilder.Entity("MVCProject.Models.Exam", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("DisciplineId");
-
-                    b.Property<string>("Name");
-
-                    b.Property<int>("StudentId");
-
-                    b.Property<int>("TeacherId");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Exams");
-                });
-
-            modelBuilder.Entity("MVCProject.Models.Group", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("DisciplineId");
-
-                    b.Property<string>("Name");
-
-                    b.Property<int>("Size");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Groups");
-                });
-
             modelBuilder.Entity("MVCProject.Models.Student", b =>
                 {
                     b.Property<string>("Id")
@@ -238,26 +204,6 @@ namespace MVCProject.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("MVCProject.Models.Teacher", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("Birthdate");
-
-                    b.Property<int>("LessonId");
-
-                    b.Property<string>("Name");
-
-                    b.Property<string>("Sex");
-
-                    b.Property<string>("Surname");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Teachers");
-                });
-
             modelBuilder.Entity("MVCProject.Models.Work", b =>
                 {
                     b.Property<int>("Id")
@@ -287,7 +233,7 @@ namespace MVCProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Work");
+                    b.ToTable("Works");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

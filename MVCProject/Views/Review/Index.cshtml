@@ -1,31 +1,47 @@
-﻿@model IEnumerable<MVCProject.Models.Work>
-@{
+﻿@{
     ViewData["Title"] = "Index";
 }
-<h2>Index</h2>
 
-@{
-    <br>
+<h2>Reviews</h2>
 
-    if (Model.Count() == 0)
-    {
-        <h2>Нет работ на проверку</h2>
+<script type="text/javascript" src="~/js/jquery.min.js"></script>
+<script>
+
+    function init() {
+        $.ajax({
+            type: "GET",
+            url: "/Review/GetJson",
+            dataType: "json",
+            contentType: 'application/json; charset=utf-8',
+            success: function (result) {
+                $.each(result, function (i, item) {
+
+
+                    var row = "<div class='container'>" +
+                        "<div class='panel panel-default'>" +
+                        "<div class='panel-heading'>" + item.title +
+                        "</br>" + " First mark: " + item.firstMark + ", Second mark: " + item.secondMark + ", Third mark: " + item.thirdMark + ", Final mark: " + item.finalMark +
+                        "<a href='//localhost:56416/Review/Edit?id=" + item.id + "'>" + " Check" + "</a>" +
+                        "</div>" +
+                        "<div class='panel-body'>" + `${item.text}` + "</div></div></div>";
+                    $('#tblWorkbody').append(row);
+                });
+
+
+            },
+            error: function (result) {
+                alert('error');
+            }
+        });
     }
-    else
-    {
-        foreach (var item in Model)
-        {
-            <div class="container">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Title:= @item.Title Total mark:= @item.FinalMark | 
-                        <a asp-action="Edit" asp-route-id="@item.Id">Check</a>
-                    </div>
-                    <div class="panel-body">Text:= @item.Text</div>
-                </div>
-            </div>
-        }
 
-    }
-}
+</script>
+
+<body onload="init()">
+</body>
+
+<div id="tblWorkbody">
+
+</div>
+
 
