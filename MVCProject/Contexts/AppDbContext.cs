@@ -14,11 +14,11 @@ namespace MVCProject.Contexts
         {
 
         }
-        // public DbSet<Student> Students { get; set; }
-        //public DbSet<Teacher> Teachers { get; set; }
-        //public DbSet<Work> Lessons { get; set; }
-        //public DbSet<Group> Groups { get; set; }
-        //public DbSet<Exam> Exams { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<Work> Lessons { get; set; }
+        public DbSet<Group> Groups { get; set; }
+        public DbSet<Exam> Exams { get; set; }
         public DbSet<Discipline> Disciplines { get; set; }
         public DbSet<Work> Works { get; set; }
     }

@@ -29,21 +29,9 @@ namespace MVCProject
             string connection = Configuration.GetConnectionString("TestDb");
             services.AddDbContext<AppDbContext>(opts => opts.UseSqlServer(connection));
             services.AddIdentity<Student, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
-            //services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connection));
-            //services.AddDbContext<StudentContext>(options =>
-            //options.UseSqlServer(Configuration.GetConnectionString("TestDb")));
-
-            //services.AddSingleton<IUnitOfWork, UnitOfWork>();
 
             services.AddTransient<IRepository<Work>, WorkRepository>();
 
-            //services.AddTransient<IRepository<Student>, StudentRepository>();
-            //services.AddTransient<IRepository<Teacher>, TeacherRepository>();
-            //services.AddTransient<IRepository<Lesson>, LessonRepository>();
-            //services.AddTransient<IRepository<Work>, WorkRepository>();
-            //services.AddTransient<IRepository<Group>, GroupRepository>();
-            //services.AddTransient<IRepository<Exam>, ExamRepository>();
-            //services.AddTransient<IRepository<Discipline>, DisciplineRepository>();
 
             services.AddMvc();
 
@@ -62,6 +50,11 @@ namespace MVCProject
                 app.UseExceptionHandler("/Home/Error");
                 app.UseDeveloperExceptionPage();
             }
+            //using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+            //{
+            //    var context = serviceScope.ServiceProvider.GetRequiredService<AppDbContext>();
+            //    context.Database.Migrate();
+            //}
 
             app.UseStaticFiles();
 
