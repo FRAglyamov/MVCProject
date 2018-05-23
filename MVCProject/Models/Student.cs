@@ -12,7 +12,6 @@ namespace MVCProject.Models
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Sex { get; set; }
-        public DateTime Birthdate { get; set; }
         public int ExamId { get; set; }
         public int GroupId { get; set; }
 

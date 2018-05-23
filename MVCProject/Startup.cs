@@ -28,9 +28,14 @@ namespace MVCProject
         {            
             string connection = Configuration.GetConnectionString("TestDb");
             services.AddDbContext<AppDbContext>(opts => opts.UseSqlServer(connection));
-            services.AddIdentity<Student, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+            //services.AddIdentity<Student, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+            services.AddIdentity<Student, IdentityRole>()
+                .AddEntityFrameworkStores<AppDbContext>()
+                .AddDefaultTokenProviders();
 
             services.AddTransient<IRepository<Work>, WorkRepository>();
+
+            
 
 
             services.AddMvc();
