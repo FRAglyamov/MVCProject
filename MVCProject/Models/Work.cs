@@ -18,6 +18,6 @@ namespace MVCProject.Models
         public string SecondMarkUserId { get; set; }
         public double ThirdMark { get; set; }
         public string ThirdMarkUserId { get; set; }
-        public double FinalMark { get; set; }
+        public string FinalMark { get; set; }
     }
 }

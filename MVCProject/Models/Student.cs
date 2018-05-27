@@ -11,9 +11,10 @@ namespace MVCProject.Models
        // public int Id { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
-        public string Sex { get; set; }
-        public int ExamId { get; set; }
-        public int GroupId { get; set; }
-
+        //public string Sex { get; set; }
+        public DateTime Birthdate { get; set; }
+        public int EmailChecher { get; set; }
+        //public int GroupId { get; set; }
+        //public int IsEmailConfirmed { get; set; } = 0;
     }
 }

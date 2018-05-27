@@ -30,30 +30,37 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                    <li><a asp-area="" asp-controller="Work" asp-action="Index">MyWorks</a></li>
-                    }
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <li><a asp-area="" asp-controller="Review" asp-action="Index">Review</a></li>
-                    }
-                    
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                    {
+                        <li><a asp-area="" asp-controller="Invite" asp-action="Index">Invite</a></li>
+                    }
+                    @if (User.IsInRole("admin"))
+                    {
+                        <li><a asp-area="" asp-controller="Roles" asp-action="Index">AdminPanel</a></li>
+                    }
+                    @if (User.IsInRole("teacher") && User.Identity.IsAuthenticated)
+                    {
+                        <li><a asp-area="" asp-controller="Teacher" asp-action="Index">Мои задачи</a></li>
+                    }    
+                    @if (User.IsInRole("student") && User.Identity.IsAuthenticated)
+                    {
+                    <li><a asp-area="" asp-controller="Work" asp-action="Index">Мои работы</a></li>
+                    }
+                    @if (User.IsInRole("student") && User.Identity.IsAuthenticated)
+                    {
+                        <li><a asp-area="" asp-controller="Review" asp-action="Index">Чужие работы</a></li>
+                    }   
                     <li>
                         @{
                             if (User.Identity.IsAuthenticated)
                             {
-                                <p>@User.Identity.Name</p>
                                 <form method="post" asp-controller="Account" asp-action="LogOff">
-                                    <input type="submit" value="Выход" />
+                                    <input type="submit" style="margin-top: 10px;" value="Выход" />
                                 </form>
                             }
                             else
                             {
-                            <p>None</p>
                             <li><a asp-area="" asp-controller="Account" asp-action="Login">Вход</a></li>
                             <li><a asp-area="" asp-controller="Account" asp-action="Register">Регистрация</a></li>
                         }
@@ -67,7 +74,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; MVCProject</p>
+            <p>&copy; 2018 - MVCProject</p>
         </footer>
     </div>
 

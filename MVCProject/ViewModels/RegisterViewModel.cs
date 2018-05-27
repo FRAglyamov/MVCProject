@@ -11,6 +11,9 @@ namespace MVCProject.ViewModels
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
+                
+        [Display(Name = "InviteCode")]
+        public string InviteCode { get; set; }
 
         [Required]
         [DataType(DataType.Password)]

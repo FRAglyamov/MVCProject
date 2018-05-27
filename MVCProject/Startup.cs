@@ -11,6 +11,7 @@ using MVCProject.Contexts;
 using MVCProject.Models;
 using MVCProject.Services;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
 
 namespace MVCProject
 {
@@ -28,22 +29,16 @@ namespace MVCProject
         {            
             string connection = Configuration.GetConnectionString("TestDb");
             services.AddDbContext<AppDbContext>(opts => opts.UseSqlServer(connection));
-            //services.AddIdentity<Student, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
-            services.AddIdentity<Student, IdentityRole>()
-                .AddEntityFrameworkStores<AppDbContext>()
-                .AddDefaultTokenProviders();
+            services.AddIdentity<Student, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
 
             services.AddTransient<IRepository<Work>, WorkRepository>();
-
-            
-
 
             services.AddMvc();
 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
@@ -55,11 +50,8 @@ namespace MVCProject
                 app.UseExceptionHandler("/Home/Error");
                 app.UseDeveloperExceptionPage();
             }
-            //using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
-            //{
-            //    var context = serviceScope.ServiceProvider.GetRequiredService<AppDbContext>();
-            //    context.Database.Migrate();
-            //}
+
+            loggerFactory.AddFile("Logs/myapp-{Date}.txt");
 
             app.UseStaticFiles();
 

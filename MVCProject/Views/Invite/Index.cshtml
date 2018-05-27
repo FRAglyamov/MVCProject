@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Послать инвайт-код:</h2>
+<form method="post" asp-controller="Invite" asp-action="SendInvite">
+    <div class="form-group">
+        <label for="email">Почта:</label>
+        <input type="text" class="form-control" name="email">
+    </div>
+    <div>
+        <button type="submit" class="btn btn-success">Отправить инвайт-код!</button>
+    </div>
+</form>

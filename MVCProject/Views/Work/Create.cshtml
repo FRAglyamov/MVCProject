@@ -1,9 +1,18 @@
-﻿<script type="text/javascript" src="~/js/jquery.min.js"></script>
+﻿@model IEnumerable<MVCProject.Models.TeacherTask>
+<script type="text/javascript" src="~/js/jquery.min.js"></script>
 <script>
     $(document).ready(function () {
         $("#subSelect").change(function () {
-            //alert($("#subSelect :selected").text());
-            $("#work_sub_id").val($("#subSelect :selected").val());
+            //alert($("#subSelect :selected").text());            
+            var arr = $("#subSelect :selected").val().split('/');
+            var id = arr[0];
+            var text = arr[1];
+            var date = arr[2];
+            $("#work_sub_id").val(id);
+            $("#task").val(text);
+            $("#task").show();
+            $("#date").val(date);
+            $("#date").show();
         });
     });
 </script>
@@ -15,25 +24,32 @@
 <h2>CreateWork</h2>
 
 <form method="post" asp-controller="Work" asp-action="AddWork">
-<div class="form-group">
-    <label for="work_title">Title:</label>
-    <input type="text" class="form-control" name="work_title">
-</div>
-<div class="form-group">
-    <label for="work_text">Text:</label>
-    <textarea class="form-control" rows="5" name="work_text"></textarea>
-</div>
-
-    <label for="subSelect">Theme:</label>
+    <label for="subSelect">Задание:</label>
     <select id="subSelect">
         <option value=""></option>
         @{
-            foreach (var item in ViewBag.Disciplines)
+            foreach (var item in ViewBag.Tasks)
             {
-                <option value="@item.Id">@item.Name</option>
+                <option value="@item.Id/@item.Text/@item.UnNormilizeDeadline">@item.Title</option>
             }
         }
     </select>
+<div class="form-group">
+     <label for="task_text">Текст задания:</label>
+     <textarea class="form-control" readonly rows="5" id="task" name="task_text" style="display:none;"></textarea>
+</div> 
+<div class="form-group">
+      <label for="inputDate">Окончание работы:</label>
+      <input type="date" readonly class="form-control" id="date" name="task_date" style="display:none;">
+</div>
+<div class="form-group">
+    <label for="work_title">Заголовок работы:</label>
+    <input type="text" class="form-control" name="work_title">
+</div>
+<div class="form-group">
+    <label for="work_text">Поле ввода:</label>
+    <textarea class="form-control" rows="5" name="work_text"></textarea>
+</div>    
 
     <div class="form-group">
         <input type="hidden" class="form-control" id="work_sub_id" name="discp_id">
@@ -41,7 +57,7 @@
 
         <br><br>
         <div>
-            <button type="submit" class="btn btn-success">Отправить!</button>
+            <button type="submit" class="btn btn-success">Отправить на проверку!</button>
         </div>
 </form>
 

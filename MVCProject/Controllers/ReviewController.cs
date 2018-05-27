@@ -9,9 +9,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using System.Globalization;
+using MVCProject.Filters;
 
 namespace MVCProject.Controllers
 {
+    [EmailCheckFilter]
     public class ReviewController : Controller
     {
         private AppDbContext _context;
@@ -25,33 +27,45 @@ namespace MVCProject.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            var otherWorks = _context.Works.Where(x => x.UserId != _userManager.GetUserId(User)).ToList();
+            return View(otherWorks);
         }
-        public IActionResult Create()
-        {
-            ViewBag.Disciplines = _context.Disciplines.ToList();
-            return View();
-        }
-        public IActionResult Edit(int id)
-        {
-            return View(_repo.Select(id));
-        }
-
         public ActionResult GetJson()
         {
             var otherWorks = _context.Works.Where(x => x.UserId != _userManager.GetUserId(User)).ToList();
             return Json(otherWorks);
         }
+        public IActionResult Create()
+        {            
+            return View();
+        }
 
+        [ReviewCheckFilter]
+        public IActionResult Edit(int id)
+        {
+            return View(_repo.Select(id));
+        }
+
+        /*public IActionResult AA(int id, string qinput_mark)
+        {
+            return Content(qinput_mark);
+        }*/
         public IActionResult Check(int id, string input_mark)
         {
+            //return Content(id.ToString() + input_mark);
 
             double mark;
             Double.TryParse(input_mark, NumberStyles.Any, CultureInfo.InvariantCulture, out mark);
 
+            //double mark;
+            //mark = Convert.ToDouble(input_mark);-
+            //return Content((mark).ToString());
+
             using (_context)
             {
                 var work = _context.Works.Where(x => x.Id == id).FirstOrDefault();
+                /*if (work.FirstMarkUserId == _userManager.GetUserId(User) || work.SecondMarkUserId == _userManager.GetUserId(User) || work.ThirdMarkUserId == _userManager.GetUserId(User))
+                    return RedirectToAction("Index");*/
                 if (work.FirstMarkUserId == _userManager.GetUserId(User))
                 { work.FirstMark = mark; goto m1; }
                 else if (work.SecondMarkUserId == _userManager.GetUserId(User))
@@ -82,7 +96,8 @@ namespace MVCProject.Controllers
                     double first = Convert.ToDouble(work.FirstMark);
                     double second = Convert.ToDouble(work.SecondMark);
                     double third = Convert.ToDouble(work.ThirdMark);
-                    work.FinalMark = (first + second + third) / 3.0;
+                    double finalMark = (first + second + third) / 3.0;                    
+                    work.FinalMark = String.Format("{0:F3}", finalMark);
                 }
                 _context.SaveChanges();
             }

@@ -5,22 +5,29 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MVCProject.Models;
+using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MVCProject.Controllers
 {
     public class HomeController : Controller
     {
+        readonly ILogger<HomeController> _log;
+
+        public HomeController(ILogger<HomeController> log)
+        {
+            _log = log;
+        }
         public IActionResult Index()
         {
-
+            _log.LogInformation("HomeController[Index]");
             return View();
         }
 
         public string Perform(int id)
         {
             return $"id = {id * 5}";
-        }
-
+        }        
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";

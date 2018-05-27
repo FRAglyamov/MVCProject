@@ -128,16 +128,32 @@ namespace MVCProject.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("MVCProject.Models.Discipline", b =>
+            modelBuilder.Entity("MVCProject.Models.Invite", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Code");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Disciplines");
+                    b.ToTable("Invites");
+                });
+
+            modelBuilder.Entity("MVCProject.Models.RecoveryHash", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Hash");
+
+                    b.Property<string>("Magic");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RecoveryHash");
                 });
 
             modelBuilder.Entity("MVCProject.Models.Student", b =>
@@ -147,17 +163,17 @@ namespace MVCProject.Migrations
 
                     b.Property<int>("AccessFailedCount");
 
+                    b.Property<DateTime>("Birthdate");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
                     b.Property<string>("Email")
                         .HasMaxLength(256);
 
+                    b.Property<int>("EmailChecher");
+
                     b.Property<bool>("EmailConfirmed");
-
-                    b.Property<int>("ExamId");
-
-                    b.Property<int>("GroupId");
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -179,8 +195,6 @@ namespace MVCProject.Migrations
 
                     b.Property<string>("SecurityStamp");
 
-                    b.Property<string>("Sex");
-
                     b.Property<string>("Surname");
 
                     b.Property<bool>("TwoFactorEnabled");
@@ -201,6 +215,26 @@ namespace MVCProject.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("MVCProject.Models.TeacherTask", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Deadline");
+
+                    b.Property<string>("TeacherId");
+
+                    b.Property<string>("Text");
+
+                    b.Property<string>("Title");
+
+                    b.Property<string>("UnNormilizeDeadline");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TeacherTasks");
+                });
+
             modelBuilder.Entity("MVCProject.Models.Work", b =>
                 {
                     b.Property<int>("Id")
@@ -208,7 +242,7 @@ namespace MVCProject.Migrations
 
                     b.Property<int>("DisciplineId");
 
-                    b.Property<double>("FinalMark");
+                    b.Property<string>("FinalMark");
 
                     b.Property<double>("FirstMark");
 

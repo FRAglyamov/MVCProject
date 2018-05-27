@@ -14,7 +14,10 @@ namespace MVCProject.Contexts
         {
 
         }
-        public DbSet<Discipline> Disciplines { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Invite> Invites { get; set; }
+        public DbSet<TeacherTask> TeacherTasks { get; set; }
+        public DbSet<RecoveryHash> RecoveryHash { get; set; }
         public DbSet<Work> Works { get; set; }
     }
 }

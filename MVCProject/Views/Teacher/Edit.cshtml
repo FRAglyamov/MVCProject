@@ -1,54 +1,24 @@
-﻿@model MVCProject.Models.Teacher
+﻿@model MVCProject.Models.TeacherTask
 
 @{
     ViewData["Title"] = "Edit";
 }
 
-<h2>Edit</h2>
-
-<h4>Teacher</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="LessonId" class="control-label"></label>
-                <input asp-for="LessonId" class="form-control" />
-                <span asp-validation-for="LessonId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Surname" class="control-label"></label>
-                <input asp-for="Surname" class="form-control" />
-                <span asp-validation-for="Surname" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Sex" class="control-label"></label>
-                <input asp-for="Sex" class="form-control" />
-                <span asp-validation-for="Sex" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Birthdate" class="control-label"></label>
-                <input asp-for="Birthdate" class="form-control" />
-                <span asp-validation-for="Birthdate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </form>
+<h2>Редактирование задачи:</h2>
+<form method="post" asp-controller="Teacher" asp-action="EditTask" asp-route-id="@Model.Id">
+    <div class="form-group">
+        <label for="task_title">Имя:</label>
+        <input type="text" class="form-control" name="task_title" value=@Model.Title>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    <div class="form-group">
+        <label for="task_text">Text:</label>
+        <textarea class="form-control" rows="5" name="task_text">@Model.Text</textarea>
+    </div>
+    <div class="form-group">
+        <label for="inputDate">Окончание работы:</label>
+        <input type="date" class="form-control" name="task_date" value=@Model.UnNormilizeDeadline>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-success">Обновить задачу!</button>
+    </div>
+</form>

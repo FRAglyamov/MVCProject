@@ -6,9 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using MVCProject.Models;
 using MVCProject.ViewModels;
-using MimeKit;
-using MailKit.Net.Smtp;
-using Microsoft.AspNetCore.Authorization;
+using MVCProject.Services;
+using MVCProject.Contexts;
 
 namespace MVCProject.Controllers
 {
@@ -16,11 +15,15 @@ namespace MVCProject.Controllers
     {
         private readonly UserManager<Student> _userManager;
         private readonly SignInManager<Student> _signInManager;
+        private AppDbContext _context;
+        private RoleManager<IdentityRole> _roleManager;
 
-        public AccountController(UserManager<Student> userManager, SignInManager<Student> signInManager)
+        public AccountController(AppDbContext context, UserManager<Student> userManager, SignInManager<Student> signInManager, RoleManager<IdentityRole> roleManager)
         {
+            _context = context;
             _userManager = userManager;
             _signInManager = signInManager;
+            _roleManager = roleManager;
         }
         [HttpGet]
         public IActionResult Register()
@@ -28,102 +31,69 @@ namespace MVCProject.Controllers
             return View();
         }
 
-        public class EmailService
+        public async Task<IActionResult> EmailConfirmAsync(string a, string data)
         {
-            public async Task SendEmailAsync(string email, string subject, string message)
+            var user = await _userManager.FindByEmailAsync(data);
+            if(user != null)
             {
-                var emailMessage = new MimeMessage();
-
-                emailMessage.From.Add(new MailboxAddress("Администрация сайта", "lucklessfox@yandex.ru"));
-                emailMessage.To.Add(new MailboxAddress("", email));
-                emailMessage.Subject = subject;
-                emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Html)
-                {
-                    Text = message
-                };
-
-                using (var client = new SmtpClient())
-                {
-                    await client.ConnectAsync("smtp.yandex.ru", 25, false);
-                    await client.AuthenticateAsync("lucklessfox@yandex.ru", "Luckless14");
-                    await client.SendAsync(emailMessage);
-
-                    await client.DisconnectAsync(true);
-                }
+                user.EmailConfirmed = true;
+                _context.SaveChanges();
             }
+            return RedirectToAction("EmailSuccess", "Alert");
         }
+
         [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
+        public async Task<IActionResult> Register(RegisterViewModel model)
         {
-            ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = new Student { UserName = model.Email, Email = model.Email };
+                Student user = new Student { Email = model.Email, UserName = model.Email, SecurityStamp = Guid.NewGuid().ToString() };
+                bool isCode = false;
+                // добавляем пользователя
                 var result = await _userManager.CreateAsync(user, model.Password);
+                if (model.InviteCode != null || model.InviteCode != "")
+                {
+                    //ищем инвайт с веденным кодом
+                    var invite = _context.Invites.Where(x => x.Code == model.InviteCode).FirstOrDefault();
+                    //если существует
+                    if(invite != null)
+                    {
+                        //устанавливаем пользователю роль админа(макс права)
+                        await _userManager.AddToRoleAsync(user, "admin");
+                        //удаляем инвайт(т.к использован)
+                        _context.Invites.Remove(invite);
+                        //флаг наличия кода
+                        isCode = true;
+                    }
+                    else
+                    {
+                        //goto m1;
+                        return Content("Invite code broken!");
+                    }
+                }
+                //m1:
                 if (result.Succeeded)
                 {
-                    string code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    var callbackUrl = Url.Action(
-                        "ConfirmEmail",
-                        "Account",
-                        new { userId = user.Id, code = code },
-                        protocol: HttpContext.Request.Scheme);
-                    EmailService emailService = new EmailService();
-                    await emailService.SendEmailAsync(model.Email, "Confirm your account",
-                        $"Подтвердите регистрацию, перейдя по ссылке: <a href='{callbackUrl}'>link</a>");
-
-                    // await _signInManager.SignInAsync(user, isPersistent: false);
-                    return LocalRedirect(returnUrl);
+                    // установка куки
+                    await _signInManager.SignInAsync(user, false);
+                    if (!isCode)
+                    {
+                        EmailService es = new EmailService();
+                        var host = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}";
+                        await es.SendEmailAsync(user.Email, $"{host}/Account/EmailConfirmAsync?a={user.Id}&data={user.Email}");
+                        return RedirectToAction("EmailSendNotify", "Alert");
+                    }
                 }
-                //AddErrors(result);
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
+                }
             }
             return View(model);
         }
-
-        //[HttpPost]
-        //public async Task<IActionResult> Register(RegisterViewModel model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        Student user = new Student { Email = model.Email, UserName = model.Email };
-        //        // добавляем пользователя
-        //        var result = await _userManager.CreateAsync(user, model.Password);
-        //        if (result.Succeeded)
-        //        {
-        //            // установка куки
-        //            await _signInManager.SignInAsync(user, false);
-        //            return RedirectToAction("Index", "Home");
-        //        }
-        //        else
-        //        {
-        //            foreach (var error in result.Errors)
-        //            {
-        //                ModelState.AddModelError(string.Empty, error.Description);
-        //            }
-        //        }
-        //    }
-        //    return View(model);
-        //}
-
-        [HttpGet]
-        [AllowAnonymous]
-        public async Task<IActionResult> ConfirmEmail(string userId, string code)
-        {
-            if (userId == null || code == null)
-            {
-                return RedirectToAction(nameof(HomeController.Index), "Home");
-            }
-            var user = await _userManager.FindByIdAsync(userId);
-            if (user == null)
-            {
-                return View("Error");
-            }
-            var result = await _userManager.ConfirmEmailAsync(user, code);
-            return View(result.Succeeded ? "ConfirmEmail" : "Error");
-        }
-
         [HttpGet]
         public IActionResult Login(string returnUrl = null)
         {
