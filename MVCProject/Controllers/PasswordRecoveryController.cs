@@ -35,12 +35,10 @@ namespace MVCProject.Controllers
         }
         public async Task<IActionResult> Send(string email)
         {
-            // Student user = _context.Students.Where(x => x.Email == "test@gmail.com").FirstOrDefault();
             var user = await _userManager.FindByEmailAsync(email);
             if (user == null) return Content("User not exist!");
 
-            string magicWord = "vercetti_vice";
-            //string hash = NetCrypto.GetHashString($"{email}{magicWord}");
+            string magicWord = "lucklessfox";
             string hash = RandomString(6);
             using (_context)
             {
@@ -60,24 +58,19 @@ namespace MVCProject.Controllers
         }
         public async Task<IActionResult> RecoverAsync(string a, string data)
         {
-            //return Content(a);
             var user = await _userManager.FindByIdAsync(a);
             if(user == null) return Content("Not Exist");
             var hashes = _context.RecoveryHash.Where(x => x.UserId == user.Id).ToList();
 
             if (hashes.Count() != 0)
             {
-                //reset password
-                //TempData["user"] = user;
                 return RedirectToAction("ChangePassword", "PasswordRecovery", new { user = user.Id });
-                //return Content("d");
             }
             else return Content("fff");
         }
         //вызов view изменения пароля 
         public IActionResult ChangePassword(string user)
         {
-            //return Content(user);
             ViewBag.UserId = user;
             return View();
         }

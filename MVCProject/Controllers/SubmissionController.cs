@@ -14,12 +14,12 @@ using MVCProject.Filters;
 namespace MVCProject.Controllers
 {
     [EmailCheckFilter]
-    public class WorkController : Controller
+    public class SubmissionController : Controller
     {
         private AppDbContext _context;
-        private IRepository<Work> _repo;
+        private IRepository<Submission> _repo;
         private UserManager<Student> _userManager;
-        public WorkController(IRepository<Work> repository, AppDbContext context, UserManager<Student> userManager)
+        public SubmissionController(IRepository<Submission> repository, AppDbContext context, UserManager<Student> userManager)
         {
             _repo = repository;
             _context = context;
@@ -38,38 +38,38 @@ namespace MVCProject.Controllers
             var val = User.Claims.FirstOrDefault()?.Value;
             return Content(val);
         }
-        public IActionResult ChangeEntity(int id, string work_title, string work_text)
+        public IActionResult ChangeEntity(int id, string submission_title, string submission_text)
         {
             using (_context)
             {
-                var work = _context.Works.Where(x => x.Id == id).FirstOrDefault();
-                work.Text = work_text;
-                work.Title = work_title;
+                var submission = _context.Submissions.Where(x => x.Id == id).FirstOrDefault();
+                submission.Text = submission_text;
+                submission.Title = submission_title;
                 _context.SaveChanges();
             }
             return RedirectToAction("Index");
         }
 
-        public IActionResult AddWork(string work_title, string work_text, string discp_id)
+        public IActionResult AddSubmission(string submission_title, string submission_text, string discp_id)
         {
             using (_context)
             {
-                var work = new Work
+                var submission = new Submission
                 {
-                    Title = work_title,
-                    Text = work_text,
+                    Title = submission_title,
+                    Text = submission_text,
                     UserId = _userManager.GetUserId(User),
                     DisciplineId = Convert.ToInt32(discp_id)
                 };
-                _context.Works.Add(work);
+                _context.Submissions.Add(submission);
                 _context.SaveChanges();
             }
             return RedirectToAction("Index");
         }
         public IActionResult Index()
         {
-            var myWorks = _context.Works.Where(x => x.UserId == _userManager.GetUserId(User)).ToList();
-            return View(myWorks);
+            var mySubmissions = _context.Submissions.Where(x => x.UserId == _userManager.GetUserId(User)).ToList();
+            return View(mySubmissions);
         }
         public IActionResult Create()
         {
@@ -87,14 +87,14 @@ namespace MVCProject.Controllers
             {
                 using (_context)
                 {
-                    var work = new Work
+                    var submission = new Submission
                     {
                         Title = "Test_Entry",
                         Text = "Test_Entry",
                         UserId = _userManager.GetUserId(User),
                         DisciplineId = Convert.ToInt32(666)
                     };
-                    _context.Works.Add(work);
+                    _context.Submissions.Add(submission);
                     _context.SaveChanges();
                 }
             }

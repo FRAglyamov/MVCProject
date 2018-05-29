@@ -23,8 +23,8 @@ namespace MVCProject.Filters
             var userId = context.HttpContext.User.Claims.FirstOrDefault()?.Value;
             //var tasks = dbContext.TeacherTasks.Where(x => x.TeacherId == userId).ToList();
             int id = (int)context.ActionArguments["id"];
-            var work = dbContext.Works.Where(x => x.Id == id).FirstOrDefault();
-            int disc_id = work.DisciplineId;
+            var submission = dbContext.Submissions.Where(x => x.Id == id).FirstOrDefault();
+            int disc_id = submission.DisciplineId;
             var task = dbContext.TeacherTasks.Where(x => x.Id == disc_id).FirstOrDefault();
             if(task == null)
             {

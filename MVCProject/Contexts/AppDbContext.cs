@@ -18,6 +18,6 @@ namespace MVCProject.Contexts
         public DbSet<Invite> Invites { get; set; }
         public DbSet<TeacherTask> TeacherTasks { get; set; }
         public DbSet<RecoveryHash> RecoveryHash { get; set; }
-        public DbSet<Work> Works { get; set; }
+        public DbSet<Submission> Submissions { get; set; }
     }
 }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MVCProject.Models
 {
-    public class Work
+    public class Submission
     {
         public int Id { get; set; }
         public string Title { get; set; }

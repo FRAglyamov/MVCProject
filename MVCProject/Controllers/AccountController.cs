@@ -67,11 +67,11 @@ namespace MVCProject.Controllers
                     }
                     else
                     {
-                        //goto m1;
+                        goto m1;
                         return Content("Invite code broken!");
                     }
                 }
-                //m1:
+                m1:
                 if (result.Succeeded)
                 {
                     // установка куки

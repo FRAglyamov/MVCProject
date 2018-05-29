@@ -7,11 +7,11 @@ using MVCProject.Models;
 
 namespace MVCProject.Services
 {
-    public class WorkRepository : Repository<Work>
+    public class SubmissionRepository : Repository<Submission>
     {
         private readonly AppDbContext _context;
 
-        public WorkRepository(AppDbContext context) : base(context.Works)
+        public SubmissionRepository(AppDbContext context) : base(context.Submissions)
         {
             _context = context;
         }

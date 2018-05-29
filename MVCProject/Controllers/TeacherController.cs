@@ -69,7 +69,6 @@ namespace MVCProject.Controllers
         }
         public IActionResult Edit(int id)
         {
-            //return Content(id.ToString());
             TeacherTask task = _context.TeacherTasks.Where(x => x.Id == id).FirstOrDefault();
             return View(task);
         }

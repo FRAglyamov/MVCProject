@@ -8,7 +8,7 @@
             var id = arr[0];
             var text = arr[1];
             var date = arr[2];
-            $("#work_sub_id").val(id);
+            $("#submission_sub_id").val(id);
             $("#task").val(text);
             $("#task").show();
             $("#date").val(date);
@@ -18,12 +18,12 @@
 </script>
 
 @{
-    ViewData["Title"] = "CreateWork";
+    ViewData["Title"] = "CreateSubmission";
 }
 
-<h2>CreateWork</h2>
+<h2>CreateSubmission</h2>
 
-<form method="post" asp-controller="Work" asp-action="AddWork">
+<form method="post" asp-controller="Submission" asp-action="AddSubmission">
     <label for="subSelect">Задание:</label>
     <select id="subSelect">
         <option value=""></option>
@@ -43,16 +43,16 @@
       <input type="date" readonly class="form-control" id="date" name="task_date" style="display:none;">
 </div>
 <div class="form-group">
-    <label for="work_title">Заголовок работы:</label>
-    <input type="text" class="form-control" name="work_title">
+    <label for="submission_title">Заголовок работы:</label>
+    <input type="text" class="form-control" name="submission_title">
 </div>
 <div class="form-group">
-    <label for="work_text">Поле ввода:</label>
-    <textarea class="form-control" rows="5" name="work_text"></textarea>
+    <label for="submission_text">Поле ввода:</label>
+    <textarea class="form-control" rows="5" name="submission_text"></textarea>
 </div>    
 
     <div class="form-group">
-        <input type="hidden" class="form-control" id="work_sub_id" name="discp_id">
+        <input type="hidden" class="form-control" id="submission_sub_id" name="discp_id">
     </div>
 
         <br><br>

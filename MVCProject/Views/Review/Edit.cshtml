@@ -12,7 +12,7 @@
 </script>
 
 
-@model MVCProject.Models.Work
+@model MVCProject.Models.Submission
 @{
     ViewData["Title"] = "Check";
 }
@@ -21,11 +21,11 @@
 
 <form method="post" asp-controller="Review" asp-action="Check" asp-route-id="@Model.Id">
     <div class="form-group">
-        <label for="work_title">Title:</label>
+        <label for="submission_title">Title:</label>
         <input readonly type="text" class="form-control" value="@Model.Title">
     </div>
     <div class="form-group">
-        <label for="work_text">Text:</label>
+        <label for="submission_text">Text:</label>
         <textarea class="form-control" rows="5" readonly >@Model.Text</textarea>
     </div>
     <label for="mark">Mark:</label>

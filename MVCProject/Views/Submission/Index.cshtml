@@ -1,11 +1,11 @@
-﻿@model IEnumerable<MVCProject.Models.Work>
+﻿@model IEnumerable<MVCProject.Models.Submission>
 @{
     ViewData["Title"] = "Index";
 }
 <h2>Мои работы</h2>
 
 @{
-    <form method="post" asp-controller="Work" asp-action="Create">
+    <form method="post" asp-controller="Submission" asp-action="Create">
         <div>
             <button type="submit" class="btn btn-success">Создать работу!</button>
         </div>
@@ -21,11 +21,21 @@
     {
         foreach (var item in Model)
         {
+            var mark = "";
+            if(item.FinalMark!=null)
+            {
+                mark = "Оценка: " + item.FinalMark;
+            }
             <div class="container">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        @item.Title |
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        @item.Title 
+                        <br>
+                        @mark
+                        @if(item.FinalMark==null)
+                        {
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        }
                     </div>
                     <div class="panel-body">@item.Text</div>
                 </div>

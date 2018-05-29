@@ -17,9 +17,9 @@ namespace MVCProject.Controllers
     public class ReviewController : Controller
     {
         private AppDbContext _context;
-        private IRepository<Work> _repo;
+        private IRepository<Submission> _repo;
         private UserManager<Student> _userManager;
-        public ReviewController(IRepository<Work> repository, AppDbContext context, UserManager<Student> userManager)
+        public ReviewController(IRepository<Submission> repository, AppDbContext context, UserManager<Student> userManager)
         {
             _repo = repository;
             _context = context;
@@ -27,13 +27,13 @@ namespace MVCProject.Controllers
         }
         public IActionResult Index()
         {
-            var otherWorks = _context.Works.Where(x => x.UserId != _userManager.GetUserId(User)).ToList();
-            return View(otherWorks);
+            var otherSubmissions = _context.Submissions.Where(x => x.UserId != _userManager.GetUserId(User)).ToList();
+            return View(otherSubmissions);
         }
         public ActionResult GetJson()
         {
-            var otherWorks = _context.Works.Where(x => x.UserId != _userManager.GetUserId(User)).ToList();
-            return Json(otherWorks);
+            var otherSubmissions = _context.Submissions.Where(x => x.UserId != _userManager.GetUserId(User)).ToList();
+            return Json(otherSubmissions);
         }
         public IActionResult Create()
         {            
@@ -45,59 +45,47 @@ namespace MVCProject.Controllers
         {
             return View(_repo.Select(id));
         }
-
-        /*public IActionResult AA(int id, string qinput_mark)
-        {
-            return Content(qinput_mark);
-        }*/
         public IActionResult Check(int id, string input_mark)
         {
-            //return Content(id.ToString() + input_mark);
 
             double mark;
             Double.TryParse(input_mark, NumberStyles.Any, CultureInfo.InvariantCulture, out mark);
 
-            //double mark;
-            //mark = Convert.ToDouble(input_mark);-
-            //return Content((mark).ToString());
-
             using (_context)
             {
-                var work = _context.Works.Where(x => x.Id == id).FirstOrDefault();
-                /*if (work.FirstMarkUserId == _userManager.GetUserId(User) || work.SecondMarkUserId == _userManager.GetUserId(User) || work.ThirdMarkUserId == _userManager.GetUserId(User))
-                    return RedirectToAction("Index");*/
-                if (work.FirstMarkUserId == _userManager.GetUserId(User))
-                { work.FirstMark = mark; goto m1; }
-                else if (work.SecondMarkUserId == _userManager.GetUserId(User))
-                { work.SecondMark = mark; goto m1; }
-                else if (work.ThirdMarkUserId == _userManager.GetUserId(User))
-                { work.ThirdMark = mark; goto m1; }
-                if (work.FirstMark == 0)
+                var submission = _context.Submissions.Where(x => x.Id == id).FirstOrDefault();
+                if (submission.FirstMarkUserId == _userManager.GetUserId(User))
+                { submission.FirstMark = mark; goto m1; }
+                else if (submission.SecondMarkUserId == _userManager.GetUserId(User))
+                { submission.SecondMark = mark; goto m1; }
+                else if (submission.ThirdMarkUserId == _userManager.GetUserId(User))
+                { submission.ThirdMark = mark; goto m1; }
+                if (submission.FirstMark == 0)
                 {
-                    work.FirstMark = mark;
-                    work.FirstMarkUserId = _userManager.GetUserId(User);
+                    submission.FirstMark = mark;
+                    submission.FirstMarkUserId = _userManager.GetUserId(User);
                     goto m1;
                 }
-                else if(work.SecondMark == 0)
+                else if(submission.SecondMark == 0)
                 {
-                    work.SecondMark = mark;
-                    work.SecondMarkUserId = _userManager.GetUserId(User);
+                    submission.SecondMark = mark;
+                    submission.SecondMarkUserId = _userManager.GetUserId(User);
                     goto m1;
                 }
-                else if(work.ThirdMark == 0)
+                else if(submission.ThirdMark == 0)
                 {
-                    work.ThirdMark = mark;
-                    work.ThirdMarkUserId = _userManager.GetUserId(User);
+                    submission.ThirdMark = mark;
+                    submission.ThirdMarkUserId = _userManager.GetUserId(User);
                     goto m1;
                 }
                 m1:
-                if (work.FirstMark!=0 && work.SecondMark!=0 && work.ThirdMark!=0)
+                if (submission.FirstMark!=0 && submission.SecondMark!=0 && submission.ThirdMark!=0)
                 {
-                    double first = Convert.ToDouble(work.FirstMark);
-                    double second = Convert.ToDouble(work.SecondMark);
-                    double third = Convert.ToDouble(work.ThirdMark);
+                    double first = Convert.ToDouble(submission.FirstMark);
+                    double second = Convert.ToDouble(submission.SecondMark);
+                    double third = Convert.ToDouble(submission.ThirdMark);
                     double finalMark = (first + second + third) / 3.0;                    
-                    work.FinalMark = String.Format("{0:F3}", finalMark);
+                    submission.FinalMark = String.Format("{0:F3}", finalMark);
                 }
                 _context.SaveChanges();
             }

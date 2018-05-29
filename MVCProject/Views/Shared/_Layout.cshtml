@@ -45,7 +45,7 @@
                     }    
                     @if (User.IsInRole("student") && User.Identity.IsAuthenticated)
                     {
-                    <li><a asp-area="" asp-controller="Work" asp-action="Index">Мои работы</a></li>
+                    <li><a asp-area="" asp-controller="Submission" asp-action="Index">Мои работы</a></li>
                     }
                     @if (User.IsInRole("student") && User.Identity.IsAuthenticated)
                     {

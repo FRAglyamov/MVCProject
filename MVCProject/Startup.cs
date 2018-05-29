@@ -31,7 +31,7 @@ namespace MVCProject
             services.AddDbContext<AppDbContext>(opts => opts.UseSqlServer(connection));
             services.AddIdentity<Student, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
 
-            services.AddTransient<IRepository<Work>, WorkRepository>();
+            services.AddTransient<IRepository<Submission>, SubmissionRepository>();
 
             services.AddMvc();
 
