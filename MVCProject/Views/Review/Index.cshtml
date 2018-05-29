@@ -2,7 +2,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Reviews</h2>
+<h2>Оценка чужих работ</h2>
 
 <script type="text/javascript" src="~/js/jquery.min.js"></script>
 <script>
@@ -16,11 +16,28 @@
             success: function (result) {
                 $.each(result, function (i, item) {
 
+                    var mark="";
+                    if (item.finalMark == null) {
+                        mark += "Проставлено: "
+                        if (item.firstMark != 0 && item.secondMark != 0) {
+                            mark += "2 оценки"
+                        }
+                        if (item.firstMark != 0 && item.secondMark == 0) {
+                            mark += "1 оценка"
+                        }
+                        if (item.firstMark == 0 && item.secondMark == 0) {
+                            mark += "0 оценок"
+                        }
+                    }
+                    else {
+                        mark = "Конечная оценка: " + item.finalMark;
+                    }
+
                     var row = "<div class='container'>" +
                         "<div class='panel panel-default'>" +
-                        "<div class='panel-heading'>" + item.title +
-                        "</br>" + " First mark: " + item.firstMark + ", Second mark: " + item.secondMark + ", Third mark: " + item.thirdMark + ", Final mark: " + item.finalMark +
-                        "<a href='//localhost:49195/Review/Edit?id=" + item.id + "'>" + " Check" + "</a>" +
+                        "<div class='panel-heading'>" + "Название: " + item.title +
+                        "</br>" + mark + "</br>" +
+                        "<a href='//localhost:53443/Review/Edit?id=" + item.id + "'>" + " Проверить" + "</a>" +
                         "</div>" +
                         "<div class='panel-body'>" + `${item.text}` + "</div></div></div>";
                     $('#tblWorkbody').append(row);

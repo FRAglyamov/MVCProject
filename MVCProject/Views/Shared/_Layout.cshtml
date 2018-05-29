@@ -33,11 +33,11 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
                     {
-                        <li><a asp-area="" asp-controller="Invite" asp-action="Index">Invite</a></li>
+                        <li><a asp-area="" asp-controller="Invite" asp-action="Index">Приглашение</a></li>
                     }
                     @if (User.IsInRole("admin"))
                     {
-                        <li><a asp-area="" asp-controller="Roles" asp-action="Index">AdminPanel</a></li>
+                        <li><a asp-area="" asp-controller="Roles" asp-action="Index">Панель админа</a></li>
                     }
                     @if (User.IsInRole("teacher") && User.Identity.IsAuthenticated)
                     {
@@ -49,7 +49,7 @@
                     }
                     @if (User.IsInRole("student") && User.Identity.IsAuthenticated)
                     {
-                        <li><a asp-area="" asp-controller="Review" asp-action="Index">Чужие работы</a></li>
+                        <li><a asp-area="" asp-controller="Review" asp-action="Index">Проверка работ</a></li>
                     }   
                     <li>
                         @{
