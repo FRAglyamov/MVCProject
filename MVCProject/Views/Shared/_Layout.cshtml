@@ -55,6 +55,7 @@
                         @{
                             if (User.Identity.IsAuthenticated)
                             {
+                                @User.Identity.Name;
                                 <form method="post" asp-controller="Account" asp-action="LogOff">
                                     <input type="submit" style="margin-top: 10px;" value="Выход" />
                                 </form>

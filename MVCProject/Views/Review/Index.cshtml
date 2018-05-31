@@ -32,12 +32,20 @@
                     else {
                         mark = "Конечная оценка: " + item.finalMark;
                     }
+                    var check = "";
+                    if (item.isCheckedNow) {
+                        check = "Работа в данный момент проверяется";
+
+                    }
+                    else {
+                        check = "<a href='//localhost:53443/Review/Edit?id=" + item.id + "'>" + " Проверить" + "</a>";
+                    }
 
                     var row = "<div class='container'>" +
                         "<div class='panel panel-default'>" +
                         "<div class='panel-heading'>" + "Название: " + item.title +
                         "</br>" + mark + "</br>" +
-                        "<a href='//localhost:53443/Review/Edit?id=" + item.id + "'>" + " Проверить" + "</a>" +
+                        check +
                         "</div>" +
                         "<div class='panel-body'>" + `${item.text}` + "</div></div></div>";
                     $('#tblSubmissionbody').append(row);

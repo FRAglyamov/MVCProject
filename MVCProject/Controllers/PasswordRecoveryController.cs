@@ -54,7 +54,7 @@ namespace MVCProject.Controllers
             EmailService es = new EmailService();
             var host = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}";
             await es.SendEmailAsync(user.Email, $"{host}/PasswordRecovery/RecoverAsync?a={user.Id}&data={hash}");
-            return Content("RP success!");
+            return Content("Password recovery success!");
         }
         public async Task<IActionResult> RecoverAsync(string a, string data)
         {

@@ -51,7 +51,7 @@ namespace MVCProject
                 app.UseDeveloperExceptionPage();
             }
 
-            loggerFactory.AddFile("Logs/myapp-{Date}.txt");
+            loggerFactory.AddFile("Logs/log-{Date}.txt");
 
             app.UseStaticFiles();
 

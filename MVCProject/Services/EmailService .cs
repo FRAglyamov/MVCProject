@@ -15,7 +15,7 @@ namespace MVCProject.Services
 
             emailMessage.From.Add(new MailboxAddress("Администрация сайта", "lucklessfox@yandex.ru"));
             emailMessage.To.Add(new MailboxAddress("", email));
-            emailMessage.Subject = "PR";
+            emailMessage.Subject = "MVC Site";
             emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Html)
             {
                 Text = message

@@ -19,5 +19,6 @@ namespace MVCProject.Models
         public double ThirdMark { get; set; }
         public string ThirdMarkUserId { get; set; }
         public string FinalMark { get; set; }
+        public bool isCheckedNow { get; set; }
     }
 }

@@ -3,5 +3,25 @@
 }
 
 <div>
+    <br>
+    @if (User.Identity.IsAuthenticated)
+    {
 
+        <a asp-area="" asp-controller="PasswordRecovery" asp-action="Index">Смена пароля</a>
+        <br>
+    }
+    <br>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <form method="post" asp-controller="Account" asp-action="EmailConfirmAsync">
+            <div class="form-group">
+                <label for="email">Подтверждение почты:</label>
+                <input type="text" class="form-control" name="email">
+            </div>
+            <div>
+                <input type="submit" value="Отправить" />
+            </div>
+        </form>
+
+    }
 </div>

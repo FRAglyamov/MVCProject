@@ -2644,3 +2644,890 @@ WHERE [x].[UserId] = @__GetUserId_0" (0723d8ff)
 2018-05-29T07:57:50.2522310+03:00 0HLE53R9F7MEH:00000007 [INF] Request finished in 136.45ms 200 text/html; charset=utf-8 (791a596a)
 2018-05-29T08:08:56.5037212+03:00 0HLE53R9F7MEI:00000001 [INF] Request starting HTTP/1.1 POST http://127.0.0.1:16791/iisintegration  0 (ca22a1cb)
 2018-05-29T08:08:56.5039028+03:00 0HLE53R9F7MEI:00000001 [INF] Request finished in 0.6858ms 202  (791a596a)
+2018-05-29T11:32:55.7212685+03:00 0HLE57R3A1NF6:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:53443/   (ca22a1cb)
+2018-05-29T11:32:57.0173667+03:00 0HLE57R3A1NF6:00000001 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-05-29T11:33:03.9119093+03:00 0HLE57R3A1NF6:00000001 [INF] Executed DbCommand ("173"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Birthdate], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailChecher], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[Name], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Surname], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AspNetUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2018-05-29T11:33:04.2800947+03:00 0HLE57R3A1NF6:00000001 [INF] Executed DbCommand ("6"ms) [Parameters=["@__user_Id_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AspNetUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2018-05-29T11:33:04.3819969+03:00 0HLE57R3A1NF6:00000001 [INF] Executed DbCommand ("26"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2018-05-29T11:33:04.4017907+03:00 0HLE57R3A1NF6:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [AspNetRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2018-05-29T11:33:04.4613437+03:00 0HLE57R3A1NF6:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__role_Id_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AspNetRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2018-05-29T11:33:04.4669211+03:00 0HLE57R3A1NF6:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T11:33:04.9331208+03:00 0HLE57R3A1NF6:00000001 [INF] Executing action method "MVCProject.Controllers.HomeController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:33:04.9391073+03:00 0HLE57R3A1NF6:00000001 [INF] HomeController[Index] (30c3454f)
+2018-05-29T11:33:08.5059580+03:00 0HLE57R3A1NF6:00000001 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2018-05-29T11:33:10.0198013+03:00 0HLE57R3A1NF6:00000001 [INF] Executed action "MVCProject.Controllers.HomeController.Index (MVCProject)" in 5144.2992ms (afa2e885)
+2018-05-29T11:33:10.0703419+03:00 0HLE57R3A1NF6:00000001 [INF] Request finished in 14400.8322ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T11:33:16.6803878+03:00 0HLE57R3A1NF6:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Review   (ca22a1cb)
+2018-05-29T11:33:16.6823441+03:00 0HLE57R3A1NF6:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T11:33:16.6914698+03:00 0HLE57R3A1NF6:00000002 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-05-29T11:33:16.7298222+03:00 0HLE57R3A1NF6:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Birthdate], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailChecher], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[Name], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Surname], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AspNetUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2018-05-29T11:33:16.7400119+03:00 0HLE57R3A1NF6:00000002 [INF] Executing action method "MVCProject.Controllers.ReviewController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:33:16.8140039+03:00 0HLE57R3A1NF6:00000002 [INF] Executed DbCommand ("55"ms) [Parameters=["@__GetUserId_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DisciplineId], [x].[FinalMark], [x].[FirstMark], [x].[FirstMarkUserId], [x].[SecondMark], [x].[SecondMarkUserId], [x].[Text], [x].[ThirdMark], [x].[ThirdMarkUserId], [x].[Title], [x].[UserId]
+FROM [Submissions] AS [x]
+WHERE ([x].[UserId] <> @__GetUserId_0) OR [x].[UserId] IS NULL" (0723d8ff)
+2018-05-29T11:33:17.0236571+03:00 0HLE57R3A1NF6:00000002 [INF] Executing ViewResult, running view at path "/Views/Review/Index.cshtml". (9707eebe)
+2018-05-29T11:33:17.0392908+03:00 0HLE57R3A1NF6:00000002 [INF] Executed action "MVCProject.Controllers.ReviewController.Index (MVCProject)" in 352.8101ms (afa2e885)
+2018-05-29T11:33:17.0397249+03:00 0HLE57R3A1NF6:00000002 [INF] Request finished in 359.4432ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T11:33:17.1522697+03:00 0HLE57R3A1NF6:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Review/GetJson application/json; charset=utf-8  (ca22a1cb)
+2018-05-29T11:33:17.1528953+03:00 0HLE57R3A1NF6:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T11:33:17.1569778+03:00 0HLE57R3A1NF6:00000003 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-05-29T11:33:17.1724976+03:00 0HLE57R3A1NF6:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Birthdate], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailChecher], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[Name], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Surname], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AspNetUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2018-05-29T11:33:17.1729822+03:00 0HLE57R3A1NF6:00000003 [INF] Executing action method "MVCProject.Controllers.ReviewController.GetJson (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:33:17.1774530+03:00 0HLE57R3A1NF6:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=["@__GetUserId_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DisciplineId], [x].[FinalMark], [x].[FirstMark], [x].[FirstMarkUserId], [x].[SecondMark], [x].[SecondMarkUserId], [x].[Text], [x].[ThirdMark], [x].[ThirdMarkUserId], [x].[Title], [x].[UserId]
+FROM [Submissions] AS [x]
+WHERE ([x].[UserId] <> @__GetUserId_0) OR [x].[UserId] IS NULL" (0723d8ff)
+2018-05-29T11:33:17.1932623+03:00 0HLE57R3A1NF6:00000003 [INF] Executing JsonResult, writing value "System.Collections.Generic.List`1[MVCProject.Models.Submission]". (7bb75e80)
+2018-05-29T11:33:17.2539252+03:00 0HLE57R3A1NF6:00000003 [INF] Executed action "MVCProject.Controllers.ReviewController.GetJson (MVCProject)" in 97.4408ms (afa2e885)
+2018-05-29T11:33:17.2541577+03:00 0HLE57R3A1NF6:00000003 [INF] Request finished in 101.9102ms 200 application/json; charset=utf-8 (791a596a)
+2018-05-29T11:33:17.6615325+03:00 0HLE57R3A1NF6:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Submission   (ca22a1cb)
+2018-05-29T11:33:17.6620434+03:00 0HLE57R3A1NF6:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T11:33:17.6650376+03:00 0HLE57R3A1NF6:00000004 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-05-29T11:33:17.6666900+03:00 0HLE57R3A1NF6:00000004 [INF] Executed DbCommand ("0"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Birthdate], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailChecher], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[Name], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Surname], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AspNetUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2018-05-29T11:33:17.6669912+03:00 0HLE57R3A1NF6:00000004 [INF] Executing action method "MVCProject.Controllers.SubmissionController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:33:17.6794579+03:00 0HLE57R3A1NF6:00000004 [INF] Executed DbCommand ("1"ms) [Parameters=["@__GetUserId_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DisciplineId], [x].[FinalMark], [x].[FirstMark], [x].[FirstMarkUserId], [x].[SecondMark], [x].[SecondMarkUserId], [x].[Text], [x].[ThirdMark], [x].[ThirdMarkUserId], [x].[Title], [x].[UserId]
+FROM [Submissions] AS [x]
+WHERE [x].[UserId] = @__GetUserId_0" (0723d8ff)
+2018-05-29T11:33:18.0724534+03:00 0HLE57R3A1NF6:00000004 [INF] Executing ViewResult, running view at path "/Views/Submission/Index.cshtml". (9707eebe)
+2018-05-29T11:33:18.1032459+03:00 0HLE57R3A1NF6:00000004 [INF] Executed action "MVCProject.Controllers.SubmissionController.Index (MVCProject)" in 438.6401ms (afa2e885)
+2018-05-29T11:33:18.1034484+03:00 0HLE57R3A1NF6:00000004 [INF] Request finished in 441.9868ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T11:34:15.2376160+03:00 0HLE57R3A1NF6:00000005 [INF] Request starting HTTP/1.1 POST http://localhost:53443/Account/LogOff application/x-www-form-urlencoded 225 (ca22a1cb)
+2018-05-29T11:34:15.2391368+03:00 0HLE57R3A1NF6:00000005 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T11:34:15.3642589+03:00 0HLE57R3A1NF6:00000005 [INF] Executing action method "MVCProject.Controllers.AccountController.LogOff (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:34:15.3863958+03:00 0HLE57R3A1NF6:00000005 [INF] AuthenticationScheme: "Identity.Application" signed out. (d3f50c8d)
+2018-05-29T11:34:15.3887720+03:00 0HLE57R3A1NF6:00000005 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2018-05-29T11:34:15.3894346+03:00 0HLE57R3A1NF6:00000005 [INF] AuthenticationScheme: "Identity.TwoFactorUserId" signed out. (d3f50c8d)
+2018-05-29T11:34:15.3948849+03:00 0HLE57R3A1NF6:00000005 [INF] Executing RedirectResult, redirecting to "/". (d98d540e)
+2018-05-29T11:34:15.3974488+03:00 0HLE57R3A1NF6:00000005 [INF] Executed action "MVCProject.Controllers.AccountController.LogOff (MVCProject)" in 134.1015ms (afa2e885)
+2018-05-29T11:34:15.4037183+03:00 0HLE57R3A1NF6:00000005 [INF] Request finished in 166.2165ms 302  (791a596a)
+2018-05-29T11:34:15.4091137+03:00 0HLE57R3A1NF6:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:53443/   (ca22a1cb)
+2018-05-29T11:34:15.4111556+03:00 0HLE57R3A1NF6:00000006 [INF] Executing action method "MVCProject.Controllers.HomeController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:34:15.4112703+03:00 0HLE57R3A1NF6:00000006 [INF] HomeController[Index] (30c3454f)
+2018-05-29T11:34:15.4139771+03:00 0HLE57R3A1NF6:00000006 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2018-05-29T11:34:15.4267477+03:00 0HLE57R3A1NF6:00000006 [INF] Executed action "MVCProject.Controllers.HomeController.Index (MVCProject)" in 15.6603ms (afa2e885)
+2018-05-29T11:34:15.4269195+03:00 0HLE57R3A1NF6:00000006 [INF] Request finished in 17.8629ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T11:34:17.8313363+03:00 0HLE57R3A1NF6:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Account/Login   (ca22a1cb)
+2018-05-29T11:34:17.9236259+03:00 0HLE57R3A1NF6:00000007 [INF] Executing action method "MVCProject.Controllers.AccountController.Login (MVCProject)" with arguments ([""]) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:34:18.3346062+03:00 0HLE57R3A1NF6:00000007 [INF] Executing ViewResult, running view at path "/Views/Account/Login.cshtml". (9707eebe)
+2018-05-29T11:34:18.5109067+03:00 0HLE57R3A1NF7:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Account/Login   (ca22a1cb)
+2018-05-29T11:34:18.5133524+03:00 0HLE57R3A1NF7:00000001 [INF] Executing action method "MVCProject.Controllers.AccountController.Login (MVCProject)" with arguments ([""]) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:34:18.5135389+03:00 0HLE57R3A1NF7:00000001 [INF] Executing ViewResult, running view at path "/Views/Account/Login.cshtml". (9707eebe)
+2018-05-29T11:34:18.5245665+03:00 0HLE57R3A1NF6:00000007 [INF] Executed action "MVCProject.Controllers.AccountController.Login (MVCProject)" in 655.1969ms (afa2e885)
+2018-05-29T11:34:18.5249253+03:00 0HLE57R3A1NF6:00000007 [INF] Request finished in 693.6251ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T11:34:18.5370083+03:00 0HLE57R3A1NF7:00000001 [INF] Executed action "MVCProject.Controllers.AccountController.Login (MVCProject)" in 24.0815ms (afa2e885)
+2018-05-29T11:34:18.5372430+03:00 0HLE57R3A1NF7:00000001 [INF] Request finished in 26.3599ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T11:34:31.2969968+03:00 0HLE57R3A1NF7:00000002 [INF] Request starting HTTP/1.1 POST http://localhost:53443/Account/Login application/x-www-form-urlencoded 242 (ca22a1cb)
+2018-05-29T11:34:31.3925163+03:00 0HLE57R3A1NF7:00000002 [INF] Executing action method "MVCProject.Controllers.AccountController.Login (MVCProject)" with arguments (["MVCProject.ViewModels.LoginViewModel"]) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:34:31.4037577+03:00 0HLE57R3A1NF7:00000002 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-05-29T11:34:31.4138165+03:00 0HLE57R3A1NF7:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Birthdate], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailChecher], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[Name], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Surname], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2018-05-29T11:34:31.5205755+03:00 0HLE57R3A1NF7:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__user_Id_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AspNetUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2018-05-29T11:34:31.5242484+03:00 0HLE57R3A1NF7:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2018-05-29T11:34:31.5255112+03:00 0HLE57R3A1NF7:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [AspNetRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2018-05-29T11:34:31.5270471+03:00 0HLE57R3A1NF7:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__role_Id_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AspNetRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2018-05-29T11:34:31.5445036+03:00 0HLE57R3A1NF7:00000002 [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2018-05-29T11:34:31.5451287+03:00 0HLE57R3A1NF7:00000002 [INF] Executing RedirectResult, redirecting to "/". (d98d540e)
+2018-05-29T11:34:31.5453830+03:00 0HLE57R3A1NF7:00000002 [INF] Executed action "MVCProject.Controllers.AccountController.Login (MVCProject)" in 228.384ms (afa2e885)
+2018-05-29T11:34:31.5457137+03:00 0HLE57R3A1NF7:00000002 [INF] Request finished in 248.8378ms 302  (791a596a)
+2018-05-29T11:34:31.5513295+03:00 0HLE57R3A1NF7:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:53443/   (ca22a1cb)
+2018-05-29T11:34:31.5519025+03:00 0HLE57R3A1NF7:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T11:34:31.5521760+03:00 0HLE57R3A1NF7:00000003 [INF] Executing action method "MVCProject.Controllers.HomeController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:34:31.5522983+03:00 0HLE57R3A1NF7:00000003 [INF] HomeController[Index] (30c3454f)
+2018-05-29T11:34:31.5524589+03:00 0HLE57R3A1NF7:00000003 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2018-05-29T11:34:31.5547039+03:00 0HLE57R3A1NF7:00000003 [INF] Executed action "MVCProject.Controllers.HomeController.Index (MVCProject)" in 2.5506ms (afa2e885)
+2018-05-29T11:34:31.5548806+03:00 0HLE57R3A1NF7:00000003 [INF] Request finished in 3.6032ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T11:45:20.2753816+03:00 0HLE57R3A1NF8:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Teacher   (ca22a1cb)
+2018-05-29T11:45:20.2760108+03:00 0HLE57R3A1NF8:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T11:45:20.2832272+03:00 0HLE57R3A1NF8:00000001 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-05-29T11:45:20.2938233+03:00 0HLE57R3A1NF8:00000001 [WRN] The LINQ expression '"where (value(MVCProject.Filters.TaskDateCheckFilter).Force([x].Deadline) < __dt_Date_0)"' could not be translated and will be evaluated locally. (011792c6)
+2018-05-29T11:45:20.3448798+03:00 0HLE57R3A1NF8:00000001 [INF] Executed DbCommand ("38"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Deadline], [x].[TeacherId], [x].[Text], [x].[Title], [x].[UnNormilizeDeadline]
+FROM [TeacherTasks] AS [x]
+WHERE [x].[Deadline] IS NOT NULL" (0723d8ff)
+2018-05-29T11:45:20.3529819+03:00 0HLE57R3A1NF8:00000001 [INF] Executing action method "MVCProject.Controllers.TeacherController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:45:20.3563495+03:00 0HLE57R3A1NF8:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Birthdate], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailChecher], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[Name], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Surname], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AspNetUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2018-05-29T11:45:20.3618680+03:00 0HLE57R3A1NF8:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__teacherId_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Deadline], [x].[TeacherId], [x].[Text], [x].[Title], [x].[UnNormilizeDeadline]
+FROM [TeacherTasks] AS [x]
+WHERE [x].[TeacherId] = @__teacherId_0" (0723d8ff)
+2018-05-29T11:45:20.4861227+03:00 0HLE57R3A1NF8:00000001 [INF] Executing ViewResult, running view at path "/Views/Teacher/Index.cshtml". (9707eebe)
+2018-05-29T11:45:20.4971816+03:00 0HLE57R3A1NF8:00000001 [INF] Executed action "MVCProject.Controllers.TeacherController.Index (MVCProject)" in 216.3341ms (afa2e885)
+2018-05-29T11:45:20.4973810+03:00 0HLE57R3A1NF8:00000001 [INF] Request finished in 222.0909ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T11:45:33.8812704+03:00 0HLE57R3A1NF8:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Teacher   (ca22a1cb)
+2018-05-29T11:45:33.8817314+03:00 0HLE57R3A1NF8:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T11:45:33.8823150+03:00 0HLE57R3A1NF8:00000002 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-05-29T11:45:33.8831393+03:00 0HLE57R3A1NF8:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Deadline], [x].[TeacherId], [x].[Text], [x].[Title], [x].[UnNormilizeDeadline]
+FROM [TeacherTasks] AS [x]
+WHERE [x].[Deadline] IS NOT NULL" (0723d8ff)
+2018-05-29T11:45:33.8834481+03:00 0HLE57R3A1NF8:00000002 [INF] Executing action method "MVCProject.Controllers.TeacherController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:45:33.8848590+03:00 0HLE57R3A1NF8:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Birthdate], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailChecher], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[Name], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Surname], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AspNetUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2018-05-29T11:45:33.8856167+03:00 0HLE57R3A1NF8:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__teacherId_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Deadline], [x].[TeacherId], [x].[Text], [x].[Title], [x].[UnNormilizeDeadline]
+FROM [TeacherTasks] AS [x]
+WHERE [x].[TeacherId] = @__teacherId_0" (0723d8ff)
+2018-05-29T11:45:34.0048598+03:00 0HLE57R3A1NF8:00000002 [INF] Executing ViewResult, running view at path "/Views/Teacher/Index.cshtml". (9707eebe)
+2018-05-29T11:45:34.0143783+03:00 0HLE57R3A1NF8:00000002 [INF] Executed action "MVCProject.Controllers.TeacherController.Index (MVCProject)" in 132.4309ms (afa2e885)
+2018-05-29T11:45:34.0145291+03:00 0HLE57R3A1NF8:00000002 [INF] Request finished in 133.3197ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T11:45:34.1937095+03:00 0HLE57R3A1NF8:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:53443/favicon.ico   (ca22a1cb)
+2018-05-29T11:45:34.2106867+03:00 0HLE57R3A1NF8:00000003 [INF] Sending file. Request path: '"/favicon.ico"'. Physical path: '"C:\VS Projects\MVCProject\MVCProject\wwwroot\favicon.ico"' (27b0a520)
+2018-05-29T11:45:34.2253818+03:00 0HLE57R3A1NF8:00000003 [INF] Request finished in 31.621ms 200 image/x-icon (791a596a)
+2018-05-29T11:50:29.5804164+03:00 0HLE57R3A1NF9:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:53443/   (ca22a1cb)
+2018-05-29T11:50:29.5809849+03:00 0HLE57R3A1NF9:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T11:50:29.5812861+03:00 0HLE57R3A1NF9:00000001 [INF] Executing action method "MVCProject.Controllers.HomeController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:50:29.5813736+03:00 0HLE57R3A1NF9:00000001 [INF] HomeController[Index] (30c3454f)
+2018-05-29T11:50:29.5815507+03:00 0HLE57R3A1NF9:00000001 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2018-05-29T11:50:29.5824226+03:00 0HLE57R3A1NF9:00000001 [INF] Executed action "MVCProject.Controllers.HomeController.Index (MVCProject)" in 1.2057ms (afa2e885)
+2018-05-29T11:50:29.5825770+03:00 0HLE57R3A1NF9:00000001 [INF] Request finished in 2.2222ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T11:52:37.2109441+03:00 0HLE57R3A1NFA:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:53443/   (ca22a1cb)
+2018-05-29T11:52:37.2114011+03:00 0HLE57R3A1NFA:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T11:52:37.2116554+03:00 0HLE57R3A1NFA:00000001 [INF] Executing action method "MVCProject.Controllers.HomeController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:52:37.2117451+03:00 0HLE57R3A1NFA:00000001 [INF] HomeController[Index] (30c3454f)
+2018-05-29T11:52:37.3278267+03:00 0HLE57R3A1NFA:00000001 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2018-05-29T11:52:37.3347013+03:00 0HLE57R3A1NFA:00000001 [INF] Executed action "MVCProject.Controllers.HomeController.Index (MVCProject)" in 123.0775ms (afa2e885)
+2018-05-29T11:52:37.3348401+03:00 0HLE57R3A1NFA:00000001 [INF] Request finished in 123.9713ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T11:52:37.4872900+03:00 0HLE57R3A1NFA:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:53443/favicon.ico   (ca22a1cb)
+2018-05-29T11:52:37.4877671+03:00 0HLE57R3A1NFA:00000002 [INF] Sending file. Request path: '"/favicon.ico"'. Physical path: '"C:\VS Projects\MVCProject\MVCProject\wwwroot\favicon.ico"' (27b0a520)
+2018-05-29T11:52:37.4883637+03:00 0HLE57R3A1NFA:00000002 [INF] Request finished in 1.0995ms 200 image/x-icon (791a596a)
+2018-05-29T11:52:53.9588203+03:00 0HLE57R3A1NFA:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:53443/   (ca22a1cb)
+2018-05-29T11:52:53.9592598+03:00 0HLE57R3A1NFA:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T11:52:53.9594325+03:00 0HLE57R3A1NFA:00000003 [INF] Executing action method "MVCProject.Controllers.HomeController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:52:53.9595012+03:00 0HLE57R3A1NFA:00000003 [INF] HomeController[Index] (30c3454f)
+2018-05-29T11:52:54.0724285+03:00 0HLE57R3A1NFA:00000003 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2018-05-29T11:52:54.0790693+03:00 0HLE57R3A1NFA:00000003 [INF] Executed action "MVCProject.Controllers.HomeController.Index (MVCProject)" in 119.6036ms (afa2e885)
+2018-05-29T11:52:54.0792259+03:00 0HLE57R3A1NFA:00000003 [INF] Request finished in 120.4519ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T11:52:54.2221275+03:00 0HLE57R3A1NFA:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:53443/favicon.ico   (ca22a1cb)
+2018-05-29T11:52:54.2225621+03:00 0HLE57R3A1NFA:00000004 [INF] Sending file. Request path: '"/favicon.ico"'. Physical path: '"C:\VS Projects\MVCProject\MVCProject\wwwroot\favicon.ico"' (27b0a520)
+2018-05-29T11:52:54.2231279+03:00 0HLE57R3A1NFA:00000004 [INF] Request finished in 1.0495ms 200 image/x-icon (791a596a)
+2018-05-29T11:54:31.6126018+03:00 0HLE57R3A1NFB:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:53443/   (ca22a1cb)
+2018-05-29T11:54:31.6130789+03:00 0HLE57R3A1NFB:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T11:54:31.6133194+03:00 0HLE57R3A1NFB:00000001 [INF] Executing action method "MVCProject.Controllers.HomeController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:54:31.6134193+03:00 0HLE57R3A1NFB:00000001 [INF] HomeController[Index] (30c3454f)
+2018-05-29T11:54:31.7323889+03:00 0HLE57R3A1NFB:00000001 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2018-05-29T11:54:31.7410726+03:00 0HLE57R3A1NFB:00000001 [INF] Executed action "MVCProject.Controllers.HomeController.Index (MVCProject)" in 127.7651ms (afa2e885)
+2018-05-29T11:54:31.7412389+03:00 0HLE57R3A1NFB:00000001 [INF] Request finished in 128.6897ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T11:54:31.8893833+03:00 0HLE57R3A1NFB:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:53443/favicon.ico   (ca22a1cb)
+2018-05-29T11:54:31.8898189+03:00 0HLE57R3A1NFB:00000002 [INF] Sending file. Request path: '"/favicon.ico"'. Physical path: '"C:\VS Projects\MVCProject\MVCProject\wwwroot\favicon.ico"' (27b0a520)
+2018-05-29T11:54:31.8903552+03:00 0HLE57R3A1NFB:00000002 [INF] Request finished in 1.0049ms 200 image/x-icon (791a596a)
+2018-05-29T11:54:53.5298829+03:00 0HLE57R3A1NFB:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:53443/   (ca22a1cb)
+2018-05-29T11:54:53.5308035+03:00 0HLE57R3A1NFB:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T11:54:53.5314586+03:00 0HLE57R3A1NFB:00000003 [INF] Executing action method "MVCProject.Controllers.HomeController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:54:53.5315581+03:00 0HLE57R3A1NFB:00000003 [INF] HomeController[Index] (30c3454f)
+2018-05-29T11:54:53.6519435+03:00 0HLE57R3A1NFB:00000003 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2018-05-29T11:54:53.6606984+03:00 0HLE57R3A1NFB:00000003 [INF] Executed action "MVCProject.Controllers.HomeController.Index (MVCProject)" in 129.4492ms (afa2e885)
+2018-05-29T11:54:53.6608873+03:00 0HLE57R3A1NFB:00000003 [INF] Request finished in 131.0659ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T11:54:53.8480484+03:00 0HLE57R3A1NFB:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:53443/favicon.ico   (ca22a1cb)
+2018-05-29T11:54:53.8484634+03:00 0HLE57R3A1NFB:00000004 [INF] Sending file. Request path: '"/favicon.ico"'. Physical path: '"C:\VS Projects\MVCProject\MVCProject\wwwroot\favicon.ico"' (27b0a520)
+2018-05-29T11:54:53.8489194+03:00 0HLE57R3A1NFB:00000004 [INF] Request finished in 0.9192ms 200 image/x-icon (791a596a)
+2018-05-29T11:55:01.4461435+03:00 0HLE57R3A1NFB:00000005 [INF] Request starting HTTP/1.1 POST http://localhost:53443/Account/LogOff application/x-www-form-urlencoded 225 (ca22a1cb)
+2018-05-29T11:55:01.4465933+03:00 0HLE57R3A1NFB:00000005 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T11:55:01.4469168+03:00 0HLE57R3A1NFB:00000005 [INF] Executing action method "MVCProject.Controllers.AccountController.LogOff (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:55:01.4470743+03:00 0HLE57R3A1NFB:00000005 [INF] AuthenticationScheme: "Identity.Application" signed out. (d3f50c8d)
+2018-05-29T11:55:01.4471734+03:00 0HLE57R3A1NFB:00000005 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2018-05-29T11:55:01.4472805+03:00 0HLE57R3A1NFB:00000005 [INF] AuthenticationScheme: "Identity.TwoFactorUserId" signed out. (d3f50c8d)
+2018-05-29T11:55:01.4473951+03:00 0HLE57R3A1NFB:00000005 [INF] Executing RedirectResult, redirecting to "/". (d98d540e)
+2018-05-29T11:55:01.4475049+03:00 0HLE57R3A1NFB:00000005 [INF] Executed action "MVCProject.Controllers.AccountController.LogOff (MVCProject)" in 0.7416ms (afa2e885)
+2018-05-29T11:55:01.4476316+03:00 0HLE57R3A1NFB:00000005 [INF] Request finished in 1.5546ms 302  (791a596a)
+2018-05-29T11:55:01.4523715+03:00 0HLE57R3A1NFB:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:53443/   (ca22a1cb)
+2018-05-29T11:55:01.4526883+03:00 0HLE57R3A1NFB:00000006 [INF] Executing action method "MVCProject.Controllers.HomeController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:55:01.4527601+03:00 0HLE57R3A1NFB:00000006 [INF] HomeController[Index] (30c3454f)
+2018-05-29T11:55:01.4528811+03:00 0HLE57R3A1NFB:00000006 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2018-05-29T11:55:01.4534946+03:00 0HLE57R3A1NFB:00000006 [INF] Executed action "MVCProject.Controllers.HomeController.Index (MVCProject)" in 0.8183ms (afa2e885)
+2018-05-29T11:55:01.4536343+03:00 0HLE57R3A1NFB:00000006 [INF] Request finished in 1.311ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T11:55:02.2781750+03:00 0HLE57R3A1NFB:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Account/Login   (ca22a1cb)
+2018-05-29T11:55:02.2787729+03:00 0HLE57R3A1NFB:00000007 [INF] Executing action method "MVCProject.Controllers.AccountController.Login (MVCProject)" with arguments ([""]) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:55:02.2806391+03:00 0HLE57R3A1NFB:00000007 [INF] Executing ViewResult, running view at path "/Views/Account/Login.cshtml". (9707eebe)
+2018-05-29T11:55:02.2823066+03:00 0HLE57R3A1NFB:00000007 [INF] Executed action "MVCProject.Controllers.AccountController.Login (MVCProject)" in 3.6929ms (afa2e885)
+2018-05-29T11:55:02.2825368+03:00 0HLE57R3A1NFB:00000007 [INF] Request finished in 4.3609ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T11:55:09.3817260+03:00 0HLE57R3A1NFB:00000008 [INF] Request starting HTTP/1.1 POST http://localhost:53443/Account/Login application/x-www-form-urlencoded 292 (ca22a1cb)
+2018-05-29T11:55:09.3845155+03:00 0HLE57R3A1NFB:00000008 [INF] Executing action method "MVCProject.Controllers.AccountController.Login (MVCProject)" with arguments (["MVCProject.ViewModels.LoginViewModel"]) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:55:09.3849300+03:00 0HLE57R3A1NFB:00000008 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-05-29T11:55:14.7221752+03:00 0HLE57R3A1NFB:00000008 [INF] Executed DbCommand ("200"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Birthdate], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailChecher], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[Name], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Surname], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2018-05-29T11:55:14.7408913+03:00 0HLE57R3A1NFB:00000008 [WRN] Invalid password for user "6fb6caaf-80ce-4aaa-b524-dd8fdbc7be0d". (c2dce6c7)
+2018-05-29T11:55:14.7412086+03:00 0HLE57R3A1NFB:00000008 [WRN] User "6fb6caaf-80ce-4aaa-b524-dd8fdbc7be0d" failed to provide the correct password. (ec8d2479)
+2018-05-29T11:55:14.7429753+03:00 0HLE57R3A1NFB:00000008 [INF] Executing ViewResult, running view at path "/Views/Account/Login.cshtml". (9707eebe)
+2018-05-29T11:55:14.7520020+03:00 0HLE57R3A1NFB:00000008 [INF] Executed action "MVCProject.Controllers.AccountController.Login (MVCProject)" in 5369.8171ms (afa2e885)
+2018-05-29T11:55:14.7521617+03:00 0HLE57R3A1NFB:00000008 [INF] Request finished in 5370.507ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T11:57:07.8504393+03:00 0HLE57R3A1NFC:00000001 [INF] Request starting HTTP/1.1 POST http://localhost:53443/Account/Login application/x-www-form-urlencoded 252 (ca22a1cb)
+2018-05-29T11:57:07.8513406+03:00 0HLE57R3A1NFC:00000001 [INF] Executing action method "MVCProject.Controllers.AccountController.Login (MVCProject)" with arguments (["MVCProject.ViewModels.LoginViewModel"]) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:57:07.8517828+03:00 0HLE57R3A1NFC:00000001 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-05-29T11:57:07.8529582+03:00 0HLE57R3A1NFC:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Birthdate], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailChecher], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[Name], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Surname], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2018-05-29T11:57:07.9069009+03:00 0HLE57R3A1NFC:00000001 [INF] Executed DbCommand ("44"ms) [Parameters=["@__user_Id_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AspNetUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2018-05-29T11:57:07.9496504+03:00 0HLE57R3A1NFC:00000001 [INF] Executed DbCommand ("41"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2018-05-29T11:57:07.9522250+03:00 0HLE57R3A1NFC:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [AspNetRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2018-05-29T11:57:07.9546074+03:00 0HLE57R3A1NFC:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__role_Id_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AspNetRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2018-05-29T11:57:07.9550367+03:00 0HLE57R3A1NFC:00000001 [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2018-05-29T11:57:07.9552125+03:00 0HLE57R3A1NFC:00000001 [INF] Executing RedirectResult, redirecting to "/". (d98d540e)
+2018-05-29T11:57:07.9553330+03:00 0HLE57R3A1NFC:00000001 [INF] Executed action "MVCProject.Controllers.AccountController.Login (MVCProject)" in 104.5439ms (afa2e885)
+2018-05-29T11:57:07.9554798+03:00 0HLE57R3A1NFC:00000001 [INF] Request finished in 105.1284ms 302  (791a596a)
+2018-05-29T11:57:07.9602456+03:00 0HLE57R3A1NFC:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:53443/   (ca22a1cb)
+2018-05-29T11:57:07.9607177+03:00 0HLE57R3A1NFC:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T11:57:07.9609203+03:00 0HLE57R3A1NFC:00000002 [INF] Executing action method "MVCProject.Controllers.HomeController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:57:07.9610006+03:00 0HLE57R3A1NFC:00000002 [INF] HomeController[Index] (30c3454f)
+2018-05-29T11:57:07.9611349+03:00 0HLE57R3A1NFC:00000002 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2018-05-29T11:57:07.9618823+03:00 0HLE57R3A1NFC:00000002 [INF] Executed action "MVCProject.Controllers.HomeController.Index (MVCProject)" in 0.9888ms (afa2e885)
+2018-05-29T11:57:07.9620086+03:00 0HLE57R3A1NFC:00000002 [INF] Request finished in 1.8183ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T11:57:10.9130775+03:00 0HLE57R3A1NFC:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Account/EmailConfirmAsync   (ca22a1cb)
+2018-05-29T11:57:10.9136768+03:00 0HLE57R3A1NFC:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T11:57:10.9195639+03:00 0HLE57R3A1NFC:00000003 [INF] Executing action method "MVCProject.Controllers.AccountController.EmailConfirmAsync (MVCProject)" with arguments (["", ""]) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:57:10.9339846+03:00 0HLE57R3A1NFC:00000003 [INF] Executed action "MVCProject.Controllers.AccountController.EmailConfirmAsync (MVCProject)" in 15.0012ms (afa2e885)
+2018-05-29T11:57:11.0721831+03:00 0HLE57R3A1NFC:00000003 [ERR] An unhandled exception has occurred while executing the request (cf926119)
+System.ArgumentNullException: Value cannot be null.
+Parameter name: email
+   at Microsoft.AspNetCore.Identity.UserManager`1.FindByEmailAsync(String email)
+   at MVCProject.Controllers.AccountController.<EmailConfirmAsync>d__6.MoveNext() in C:\VS Projects\MVCProject\MVCProject\Controllers\AccountController.cs:line 36
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__12.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeInnerFilterAsync>d__14.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeNextResourceFilter>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeFilterPipelineAsync>d__17.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeAsync>d__15.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.<Invoke>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.<Invoke>d__7.MoveNext()
+2018-05-29T11:57:11.2809273+03:00 0HLE57R3A1NFC:00000003 [INF] Request finished in 367.8725ms 500 text/html; charset=utf-8 (791a596a)
+2018-05-29T11:57:34.8901067+03:00 0HLE57R3A1NFC:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:53443/   (ca22a1cb)
+2018-05-29T11:57:34.8905230+03:00 0HLE57R3A1NFC:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T11:57:34.8908201+03:00 0HLE57R3A1NFC:00000004 [INF] Executing action method "MVCProject.Controllers.HomeController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:57:34.8908987+03:00 0HLE57R3A1NFC:00000004 [INF] HomeController[Index] (30c3454f)
+2018-05-29T11:57:34.8910272+03:00 0HLE57R3A1NFC:00000004 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2018-05-29T11:57:34.8917246+03:00 0HLE57R3A1NFC:00000004 [INF] Executed action "MVCProject.Controllers.HomeController.Index (MVCProject)" in 1.0504ms (afa2e885)
+2018-05-29T11:57:34.8918853+03:00 0HLE57R3A1NFC:00000004 [INF] Request finished in 1.8237ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T11:57:36.4527329+03:00 0HLE57R3A1NFC:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:53443/PasswordRecovery   (ca22a1cb)
+2018-05-29T11:57:36.4533371+03:00 0HLE57R3A1NFC:00000005 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T11:57:36.4557695+03:00 0HLE57R3A1NFC:00000005 [INF] Executing action method "MVCProject.Controllers.PasswordRecoveryController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:57:36.5673196+03:00 0HLE57R3A1NFC:00000005 [INF] Executing ViewResult, running view at path "/Views/PasswordRecovery/Index.cshtml". (9707eebe)
+2018-05-29T11:57:36.5749028+03:00 0HLE57R3A1NFC:00000005 [INF] Executed action "MVCProject.Controllers.PasswordRecoveryController.Index (MVCProject)" in 119.3372ms (afa2e885)
+2018-05-29T11:57:36.5750434+03:00 0HLE57R3A1NFC:00000005 [INF] Request finished in 122.3667ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T11:57:57.4744503+03:00 0HLE57R3A1NFC:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:53443/PasswordRecovery   (ca22a1cb)
+2018-05-29T11:57:57.4749938+03:00 0HLE57R3A1NFC:00000006 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T11:57:57.4752339+03:00 0HLE57R3A1NFC:00000006 [INF] Executing action method "MVCProject.Controllers.PasswordRecoveryController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:57:57.5924373+03:00 0HLE57R3A1NFC:00000006 [INF] Executing ViewResult, running view at path "/Views/PasswordRecovery/Index.cshtml". (9707eebe)
+2018-05-29T11:57:57.5998715+03:00 0HLE57R3A1NFC:00000006 [INF] Executed action "MVCProject.Controllers.PasswordRecoveryController.Index (MVCProject)" in 124.6437ms (afa2e885)
+2018-05-29T11:57:57.6000107+03:00 0HLE57R3A1NFC:00000006 [INF] Request finished in 125.6549ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T11:57:57.7470109+03:00 0HLE57R3A1NFC:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:53443/favicon.ico   (ca22a1cb)
+2018-05-29T11:57:57.7474616+03:00 0HLE57R3A1NFC:00000007 [INF] Sending file. Request path: '"/favicon.ico"'. Physical path: '"C:\VS Projects\MVCProject\MVCProject\wwwroot\favicon.ico"' (27b0a520)
+2018-05-29T11:57:57.7480101+03:00 0HLE57R3A1NFC:00000007 [INF] Request finished in 1.0401ms 200 image/x-icon (791a596a)
+2018-05-29T11:58:08.9175456+03:00 0HLE57R3A1NFC:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:53443/PasswordRecovery   (ca22a1cb)
+2018-05-29T11:58:08.9181431+03:00 0HLE57R3A1NFC:00000008 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T11:58:08.9183939+03:00 0HLE57R3A1NFC:00000008 [INF] Executing action method "MVCProject.Controllers.PasswordRecoveryController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:58:09.0340422+03:00 0HLE57R3A1NFC:00000008 [INF] Executing ViewResult, running view at path "/Views/PasswordRecovery/Index.cshtml". (9707eebe)
+2018-05-29T11:58:09.0409284+03:00 0HLE57R3A1NFC:00000008 [INF] Executed action "MVCProject.Controllers.PasswordRecoveryController.Index (MVCProject)" in 122.5603ms (afa2e885)
+2018-05-29T11:58:09.0410716+03:00 0HLE57R3A1NFC:00000008 [INF] Request finished in 123.6473ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T11:58:09.1866453+03:00 0HLE57R3A1NFC:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:53443/favicon.ico   (ca22a1cb)
+2018-05-29T11:58:09.1871598+03:00 0HLE57R3A1NFC:00000009 [INF] Sending file. Request path: '"/favicon.ico"'. Physical path: '"C:\VS Projects\MVCProject\MVCProject\wwwroot\favicon.ico"' (27b0a520)
+2018-05-29T11:58:09.1879206+03:00 0HLE57R3A1NFC:00000009 [INF] Request finished in 1.2257ms 200 image/x-icon (791a596a)
+2018-05-29T11:58:22.3932316+03:00 0HLE57R3A1NFC:0000000A [INF] Request starting HTTP/1.1 POST http://localhost:53443/PasswordRecovery/Send application/x-www-form-urlencoded 255 (ca22a1cb)
+2018-05-29T11:58:22.3938594+03:00 0HLE57R3A1NFC:0000000A [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T11:58:22.3991178+03:00 0HLE57R3A1NFC:0000000A [INF] Executing action method "MVCProject.Controllers.PasswordRecoveryController.Send (MVCProject)" with arguments (["lucklessfox@gmail.com"]) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:58:22.4035698+03:00 0HLE57R3A1NFC:0000000A [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-05-29T11:58:22.5378686+03:00 0HLE57R3A1NFC:0000000A [INF] Executed DbCommand ("127"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Birthdate], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailChecher], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[Name], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Surname], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0" (0723d8ff)
+2018-05-29T11:58:22.7338678+03:00 0HLE57R3A1NFC:0000000A [INF] Executed DbCommand ("21"ms) [Parameters=["@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [RecoveryHash] ([Hash], [Magic], [UserId])
+VALUES (@p0, @p1, @p2);
+SELECT [Id]
+FROM [RecoveryHash]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();" (0723d8ff)
+2018-05-29T11:58:24.6873137+03:00 0HLE57R3A1NFC:0000000A [INF] Executing ContentResult with HTTP Response ContentType of "text/plain; charset=utf-8" (7ec2a4e9)
+2018-05-29T11:58:24.6875627+03:00 0HLE57R3A1NFC:0000000A [INF] Executed action "MVCProject.Controllers.PasswordRecoveryController.Send (MVCProject)" in 2288.6113ms (afa2e885)
+2018-05-29T11:58:24.6877144+03:00 0HLE57R3A1NFC:0000000A [INF] Request finished in 2294.5337ms 200 text/plain; charset=utf-8 (791a596a)
+2018-05-29T11:58:31.1159985+03:00 0HLE57R3A1NFC:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:53443/PasswordRecovery   (ca22a1cb)
+2018-05-29T11:58:31.1165251+03:00 0HLE57R3A1NFC:0000000B [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T11:58:31.1167370+03:00 0HLE57R3A1NFC:0000000B [INF] Executing action method "MVCProject.Controllers.PasswordRecoveryController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:58:31.1168901+03:00 0HLE57R3A1NFC:0000000B [INF] Executing ViewResult, running view at path "/Views/PasswordRecovery/Index.cshtml". (9707eebe)
+2018-05-29T11:58:31.1177633+03:00 0HLE57R3A1NFC:0000000B [INF] Executed action "MVCProject.Controllers.PasswordRecoveryController.Index (MVCProject)" in 1.0303ms (afa2e885)
+2018-05-29T11:58:31.1179110+03:00 0HLE57R3A1NFC:0000000B [INF] Request finished in 1.9687ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T11:59:08.5134109+03:00 0HLE57R3A1NFC:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:53443/PasswordRecovery   (ca22a1cb)
+2018-05-29T11:59:08.5138237+03:00 0HLE57R3A1NFC:0000000C [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T11:59:08.5140218+03:00 0HLE57R3A1NFC:0000000C [INF] Executing action method "MVCProject.Controllers.PasswordRecoveryController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T11:59:08.5141668+03:00 0HLE57R3A1NFC:0000000C [INF] Executing ViewResult, running view at path "/Views/PasswordRecovery/Index.cshtml". (9707eebe)
+2018-05-29T11:59:08.5149057+03:00 0HLE57R3A1NFC:0000000C [INF] Executed action "MVCProject.Controllers.PasswordRecoveryController.Index (MVCProject)" in 0.8924ms (afa2e885)
+2018-05-29T11:59:08.5150392+03:00 0HLE57R3A1NFC:0000000C [INF] Request finished in 1.6871ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:00:00.2991937+03:00 0HLE58A7GE1IQ:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:53443/PasswordRecovery/RecoverAsync?a=6fb6caaf-80ce-4aaa-b524-dd8fdbc7be0d&data=03MI86   (ca22a1cb)
+2018-05-29T12:00:00.6214479+03:00 0HLE58A7GE1IQ:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:00:01.0767863+03:00 0HLE58A7GE1IQ:00000001 [INF] Executing action method "MVCProject.Controllers.PasswordRecoveryController.RecoverAsync (MVCProject)" with arguments (["6fb6caaf-80ce-4aaa-b524-dd8fdbc7be0d", "03MI86"]) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:00:01.7796060+03:00 0HLE58A7GE1IQ:00000001 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-05-29T12:00:08.1751660+03:00 0HLE58A7GE1IQ:00000001 [INF] Executed DbCommand ("354"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Birthdate], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailChecher], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[Name], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Surname], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AspNetUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2018-05-29T12:00:08.3992307+03:00 0HLE58A7GE1IQ:00000001 [INF] Executed DbCommand ("39"ms) [Parameters=["@__user_Id_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Hash], [x].[Magic], [x].[UserId]
+FROM [RecoveryHash] AS [x]
+WHERE [x].[UserId] = @__user_Id_0" (0723d8ff)
+2018-05-29T12:00:08.4664213+03:00 0HLE58A7GE1IQ:00000001 [INF] Executing RedirectResult, redirecting to "/PasswordRecovery/ChangePassword?user=6fb6caaf-80ce-4aaa-b524-dd8fdbc7be0d". (d98d540e)
+2018-05-29T12:00:08.4827109+03:00 0HLE58A7GE1IQ:00000001 [INF] Executed action "MVCProject.Controllers.PasswordRecoveryController.RecoverAsync (MVCProject)" in 7535.6602ms (afa2e885)
+2018-05-29T12:00:08.5413764+03:00 0HLE58A7GE1IQ:00000001 [INF] Request finished in 8279.4083ms 302  (791a596a)
+2018-05-29T12:00:08.5457084+03:00 0HLE58A7GE1IQ:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:53443/PasswordRecovery/ChangePassword?user=6fb6caaf-80ce-4aaa-b524-dd8fdbc7be0d   (ca22a1cb)
+2018-05-29T12:00:08.5469957+03:00 0HLE58A7GE1IQ:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:00:08.5521554+03:00 0HLE58A7GE1IQ:00000002 [INF] Executing action method "MVCProject.Controllers.PasswordRecoveryController.ChangePassword (MVCProject)" with arguments (["6fb6caaf-80ce-4aaa-b524-dd8fdbc7be0d"]) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:00:11.6639082+03:00 0HLE58A7GE1IQ:00000002 [INF] Executing ViewResult, running view at path "/Views/PasswordRecovery/ChangePassword.cshtml". (9707eebe)
+2018-05-29T12:00:12.4612706+03:00 0HLE58A7GE1IQ:00000002 [INF] Executed action "MVCProject.Controllers.PasswordRecoveryController.ChangePassword (MVCProject)" in 3909.3524ms (afa2e885)
+2018-05-29T12:00:12.4670813+03:00 0HLE58A7GE1IQ:00000002 [INF] Request finished in 3921.2582ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:00:26.2362595+03:00 0HLE58A7GE1IQ:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:53443/PasswordRecovery/PermitChanges application/x-www-form-urlencoded 293 (ca22a1cb)
+2018-05-29T12:00:26.2374531+03:00 0HLE58A7GE1IQ:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:00:26.3158629+03:00 0HLE58A7GE1IQ:00000003 [INF] Executing action method "MVCProject.Controllers.PasswordRecoveryController.PermitChanges (MVCProject)" with arguments (["Luckless14!", "6fb6caaf-80ce-4aaa-b524-dd8fdbc7be0d"]) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:00:26.3185176+03:00 0HLE58A7GE1IQ:00000003 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-05-29T12:00:26.3280909+03:00 0HLE58A7GE1IQ:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Birthdate], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailChecher], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[Name], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Surname], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AspNetUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2018-05-29T12:00:26.3809844+03:00 0HLE58A7GE1IQ:00000003 [INF] Executed DbCommand ("2"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Birthdate], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailChecher], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[Name], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Surname], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2018-05-29T12:00:26.5907470+03:00 0HLE58A7GE1IQ:00000003 [INF] Executed DbCommand ("30"ms) [Parameters=["@p18='?' (Size = 450), @p0='?', @p1='?', @p2='?' (Size = 4000), @p19='?' (Size = 4000), @p3='?' (Size = 256), @p4='?', @p5='?', @p6='?', @p7='?', @p8='?' (Size = 4000), @p9='?' (Size = 256), @p10='?' (Size = 256), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?', @p14='?' (Size = 4000), @p15='?' (Size = 4000), @p16='?', @p17='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [Birthdate] = @p1, [ConcurrencyStamp] = @p2, [Email] = @p3, [EmailChecher] = @p4, [EmailConfirmed] = @p5, [LockoutEnabled] = @p6, [LockoutEnd] = @p7, [Name] = @p8, [NormalizedEmail] = @p9, [NormalizedUserName] = @p10, [PasswordHash] = @p11, [PhoneNumber] = @p12, [PhoneNumberConfirmed] = @p13, [SecurityStamp] = @p14, [Surname] = @p15, [TwoFactorEnabled] = @p16, [UserName] = @p17
+WHERE [Id] = @p18 AND [ConcurrencyStamp] = @p19;
+SELECT @@ROWCOUNT;" (0723d8ff)
+2018-05-29T12:00:26.6451466+03:00 0HLE58A7GE1IQ:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Birthdate], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailChecher], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[Name], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Surname], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2018-05-29T12:00:26.6469413+03:00 0HLE58A7GE1IQ:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=["@p18='?' (Size = 450), @p0='?', @p1='?', @p2='?' (Size = 4000), @p19='?' (Size = 4000), @p3='?' (Size = 256), @p4='?', @p5='?', @p6='?', @p7='?', @p8='?' (Size = 4000), @p9='?' (Size = 256), @p10='?' (Size = 256), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?', @p14='?' (Size = 4000), @p15='?' (Size = 4000), @p16='?', @p17='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [Birthdate] = @p1, [ConcurrencyStamp] = @p2, [Email] = @p3, [EmailChecher] = @p4, [EmailConfirmed] = @p5, [LockoutEnabled] = @p6, [LockoutEnd] = @p7, [Name] = @p8, [NormalizedEmail] = @p9, [NormalizedUserName] = @p10, [PasswordHash] = @p11, [PhoneNumber] = @p12, [PhoneNumberConfirmed] = @p13, [SecurityStamp] = @p14, [Surname] = @p15, [TwoFactorEnabled] = @p16, [UserName] = @p17
+WHERE [Id] = @p18 AND [ConcurrencyStamp] = @p19;
+SELECT @@ROWCOUNT;" (0723d8ff)
+2018-05-29T12:00:26.6482711+03:00 0HLE58A7GE1IQ:00000003 [INF] Executing RedirectResult, redirecting to "/Alert/PassChangeSuccess". (d98d540e)
+2018-05-29T12:00:26.6484429+03:00 0HLE58A7GE1IQ:00000003 [INF] Executed action "MVCProject.Controllers.PasswordRecoveryController.PermitChanges (MVCProject)" in 404.9357ms (afa2e885)
+2018-05-29T12:00:26.6511086+03:00 0HLE58A7GE1IQ:00000003 [INF] Request finished in 415.0418ms 302  (791a596a)
+2018-05-29T12:00:26.6561916+03:00 0HLE58A7GE1IQ:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Alert/PassChangeSuccess   (ca22a1cb)
+2018-05-29T12:00:26.6565914+03:00 0HLE58A7GE1IQ:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:00:26.6582197+03:00 0HLE58A7GE1IQ:00000004 [INF] Executing action method "MVCProject.Controllers.AlertController.PassChangeSuccess (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:00:26.7620702+03:00 0HLE58A7GE1IQ:00000004 [INF] Executing ViewResult, running view at path "/Views/Alert/PassChangeSuccess.cshtml". (9707eebe)
+2018-05-29T12:00:26.7673214+03:00 0HLE58A7GE1IQ:00000004 [INF] Executed action "MVCProject.Controllers.AlertController.PassChangeSuccess (MVCProject)" in 109.2435ms (afa2e885)
+2018-05-29T12:00:26.7674945+03:00 0HLE58A7GE1IQ:00000004 [INF] Request finished in 111.3319ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:00:28.2490002+03:00 0HLE58A7GE1IQ:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:53443/   (ca22a1cb)
+2018-05-29T12:00:28.2495187+03:00 0HLE58A7GE1IQ:00000005 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:00:28.2524701+03:00 0HLE58A7GE1IQ:00000005 [INF] Executing action method "MVCProject.Controllers.HomeController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:00:28.2563005+03:00 0HLE58A7GE1IQ:00000005 [INF] HomeController[Index] (30c3454f)
+2018-05-29T12:00:28.3734584+03:00 0HLE58A7GE1IQ:00000005 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2018-05-29T12:00:28.3825177+03:00 0HLE58A7GE1IQ:00000005 [INF] Executed action "MVCProject.Controllers.HomeController.Index (MVCProject)" in 130.7178ms (afa2e885)
+2018-05-29T12:00:28.3826738+03:00 0HLE58A7GE1IQ:00000005 [INF] Request finished in 133.72ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:01:14.6251154+03:00 0HLE58A7GE1IQ:00000006 [INF] Request starting HTTP/1.1 POST http://localhost:53443/Account/LogOff application/x-www-form-urlencoded 225 (ca22a1cb)
+2018-05-29T12:01:14.6257187+03:00 0HLE58A7GE1IQ:00000006 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:01:14.6593465+03:00 0HLE58A7GE1IQ:00000006 [INF] Executing action method "MVCProject.Controllers.AccountController.LogOff (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:01:14.6965136+03:00 0HLE58A7GE1IQ:00000006 [INF] AuthenticationScheme: "Identity.Application" signed out. (d3f50c8d)
+2018-05-29T12:01:14.6984270+03:00 0HLE58A7GE1IQ:00000006 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2018-05-29T12:01:14.6988540+03:00 0HLE58A7GE1IQ:00000006 [INF] AuthenticationScheme: "Identity.TwoFactorUserId" signed out. (d3f50c8d)
+2018-05-29T12:01:14.6989830+03:00 0HLE58A7GE1IQ:00000006 [INF] Executing RedirectResult, redirecting to "/". (d98d540e)
+2018-05-29T12:01:14.6991030+03:00 0HLE58A7GE1IQ:00000006 [INF] Executed action "MVCProject.Controllers.AccountController.LogOff (MVCProject)" in 52.1273ms (afa2e885)
+2018-05-29T12:01:14.6992507+03:00 0HLE58A7GE1IQ:00000006 [INF] Request finished in 74.3303ms 302  (791a596a)
+2018-05-29T12:01:14.7036372+03:00 0HLE58A7GE1IQ:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:53443/   (ca22a1cb)
+2018-05-29T12:01:14.7052833+03:00 0HLE58A7GE1IQ:00000007 [INF] Executing action method "MVCProject.Controllers.HomeController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:01:14.7053734+03:00 0HLE58A7GE1IQ:00000007 [INF] HomeController[Index] (30c3454f)
+2018-05-29T12:01:14.7102695+03:00 0HLE58A7GE1IQ:00000007 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2018-05-29T12:01:14.7124047+03:00 0HLE58A7GE1IQ:00000007 [INF] Executed action "MVCProject.Controllers.HomeController.Index (MVCProject)" in 7.1574ms (afa2e885)
+2018-05-29T12:01:14.7125354+03:00 0HLE58A7GE1IQ:00000007 [INF] Request finished in 8.9428ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:01:15.7722870+03:00 0HLE58A7GE1IQ:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Account/Login   (ca22a1cb)
+2018-05-29T12:01:15.7764700+03:00 0HLE58A7GE1IQ:00000008 [INF] Executing action method "MVCProject.Controllers.AccountController.Login (MVCProject)" with arguments ([""]) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:01:16.1354657+03:00 0HLE58A7GE1IQ:00000008 [INF] Executing ViewResult, running view at path "/Views/Account/Login.cshtml". (9707eebe)
+2018-05-29T12:01:16.2638796+03:00 0HLE58A7GE1IQ:00000008 [INF] Executed action "MVCProject.Controllers.AccountController.Login (MVCProject)" in 487.9906ms (afa2e885)
+2018-05-29T12:01:16.2640492+03:00 0HLE58A7GE1IQ:00000008 [INF] Request finished in 491.8572ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:02:22.6594982+03:00 0HLE58A7GE1IR:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Account/Login   (ca22a1cb)
+2018-05-29T12:02:22.6613335+03:00 0HLE58A7GE1IR:00000001 [INF] Executing action method "MVCProject.Controllers.AccountController.Login (MVCProject)" with arguments ([""]) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:02:22.8290980+03:00 0HLE58A7GE1IR:00000001 [INF] Executing ViewResult, running view at path "/Views/Account/Login.cshtml". (9707eebe)
+2018-05-29T12:02:22.8553933+03:00 0HLE58A7GE1IR:00000001 [INF] Executed action "MVCProject.Controllers.AccountController.Login (MVCProject)" in 194.2052ms (afa2e885)
+2018-05-29T12:02:22.8555579+03:00 0HLE58A7GE1IR:00000001 [INF] Request finished in 196.0946ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:02:23.0116692+03:00 0HLE58A7GE1IR:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:53443/favicon.ico   (ca22a1cb)
+2018-05-29T12:02:23.0307954+03:00 0HLE58A7GE1IR:00000002 [INF] Sending file. Request path: '"/favicon.ico"'. Physical path: '"C:\VS Projects\MVCProject\MVCProject\wwwroot\favicon.ico"' (27b0a520)
+2018-05-29T12:02:23.0467753+03:00 0HLE58A7GE1IR:00000002 [INF] Request finished in 35.1207ms 200 image/x-icon (791a596a)
+2018-05-29T12:02:37.7853097+03:00 0HLE58A7GE1IR:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Account/Login   (ca22a1cb)
+2018-05-29T12:02:37.7858769+03:00 0HLE58A7GE1IR:00000003 [INF] Executing action method "MVCProject.Controllers.AccountController.Login (MVCProject)" with arguments ([""]) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:02:37.9421265+03:00 0HLE58A7GE1IR:00000003 [INF] Executing ViewResult, running view at path "/Views/Account/Login.cshtml". (9707eebe)
+2018-05-29T12:02:37.9641318+03:00 0HLE58A7GE1IR:00000003 [INF] Executed action "MVCProject.Controllers.AccountController.Login (MVCProject)" in 178.4922ms (afa2e885)
+2018-05-29T12:02:37.9642643+03:00 0HLE58A7GE1IR:00000003 [INF] Request finished in 179.0045ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:02:38.1193457+03:00 0HLE58A7GE1IR:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:53443/favicon.ico   (ca22a1cb)
+2018-05-29T12:02:38.1199137+03:00 0HLE58A7GE1IR:00000004 [INF] Sending file. Request path: '"/favicon.ico"'. Physical path: '"C:\VS Projects\MVCProject\MVCProject\wwwroot\favicon.ico"' (27b0a520)
+2018-05-29T12:02:38.1205523+03:00 0HLE58A7GE1IR:00000004 [INF] Request finished in 1.2623ms 200 image/x-icon (791a596a)
+2018-05-29T12:02:40.9863450+03:00 0HLE58A7GE1IR:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:53443/PasswordRecovery   (ca22a1cb)
+2018-05-29T12:02:40.9889701+03:00 0HLE58A7GE1IR:00000005 [INF] Executing action method "MVCProject.Controllers.PasswordRecoveryController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:02:41.1023070+03:00 0HLE58A7GE1IR:00000005 [INF] Executing ViewResult, running view at path "/Views/PasswordRecovery/Index.cshtml". (9707eebe)
+2018-05-29T12:02:41.1087050+03:00 0HLE58A7GE1IR:00000005 [INF] Executed action "MVCProject.Controllers.PasswordRecoveryController.Index (MVCProject)" in 119.8789ms (afa2e885)
+2018-05-29T12:02:41.1088384+03:00 0HLE58A7GE1IR:00000005 [INF] Request finished in 122.5451ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:02:48.3293327+03:00 0HLE58A7GE1IR:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Account/Login   (ca22a1cb)
+2018-05-29T12:02:48.3299605+03:00 0HLE58A7GE1IR:00000006 [INF] Executing action method "MVCProject.Controllers.AccountController.Login (MVCProject)" with arguments ([""]) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:02:48.3301007+03:00 0HLE58A7GE1IR:00000006 [INF] Executing ViewResult, running view at path "/Views/Account/Login.cshtml". (9707eebe)
+2018-05-29T12:02:48.3311672+03:00 0HLE58A7GE1IR:00000006 [INF] Executed action "MVCProject.Controllers.AccountController.Login (MVCProject)" in 1.4841ms (afa2e885)
+2018-05-29T12:02:48.3313158+03:00 0HLE58A7GE1IR:00000006 [INF] Request finished in 2.0352ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:03:13.5268298+03:00 0HLE58A7GE1IR:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:53443/PasswordRecovery   (ca22a1cb)
+2018-05-29T12:03:13.5273154+03:00 0HLE58A7GE1IR:00000007 [INF] Executing action method "MVCProject.Controllers.PasswordRecoveryController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:03:13.6495173+03:00 0HLE58A7GE1IR:00000007 [INF] Executing ViewResult, running view at path "/Views/PasswordRecovery/Index.cshtml". (9707eebe)
+2018-05-29T12:03:13.6562875+03:00 0HLE58A7GE1IR:00000007 [INF] Executed action "MVCProject.Controllers.PasswordRecoveryController.Index (MVCProject)" in 129.098ms (afa2e885)
+2018-05-29T12:03:13.6564183+03:00 0HLE58A7GE1IR:00000007 [INF] Request finished in 129.6892ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:03:17.0274764+03:00 0HLE58A7GE1IR:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Account/Login   (ca22a1cb)
+2018-05-29T12:03:17.0279980+03:00 0HLE58A7GE1IR:00000008 [INF] Executing action method "MVCProject.Controllers.AccountController.Login (MVCProject)" with arguments ([""]) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:03:17.0281199+03:00 0HLE58A7GE1IR:00000008 [INF] Executing ViewResult, running view at path "/Views/Account/Login.cshtml". (9707eebe)
+2018-05-29T12:03:17.0290623+03:00 0HLE58A7GE1IR:00000008 [INF] Executed action "MVCProject.Controllers.AccountController.Login (MVCProject)" in 1.2463ms (afa2e885)
+2018-05-29T12:03:17.0292720+03:00 0HLE58A7GE1IR:00000008 [INF] Request finished in 1.85ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:03:26.6071284+03:00 0HLE58A7GE1IR:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:53443/PasswordRecovery   (ca22a1cb)
+2018-05-29T12:03:26.6076215+03:00 0HLE58A7GE1IR:00000009 [INF] Executing action method "MVCProject.Controllers.PasswordRecoveryController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:03:26.7553919+03:00 0HLE58A7GE1IR:00000009 [INF] Executing ViewResult, running view at path "/Views/PasswordRecovery/Index.cshtml". (9707eebe)
+2018-05-29T12:03:26.7619198+03:00 0HLE58A7GE1IR:00000009 [INF] Executed action "MVCProject.Controllers.PasswordRecoveryController.Index (MVCProject)" in 154.4147ms (afa2e885)
+2018-05-29T12:03:26.7620528+03:00 0HLE58A7GE1IR:00000009 [INF] Request finished in 155.0577ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:03:34.5085050+03:00 0HLE58A7GE1IR:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:53443/Account/Login   (ca22a1cb)
+2018-05-29T12:03:34.5092931+03:00 0HLE58A7GE1IR:0000000A [INF] Executing action method "MVCProject.Controllers.AccountController.Login (MVCProject)" with arguments ([""]) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:03:34.5094671+03:00 0HLE58A7GE1IR:0000000A [INF] Executing ViewResult, running view at path "/Views/Account/Login.cshtml". (9707eebe)
+2018-05-29T12:03:34.5107264+03:00 0HLE58A7GE1IR:0000000A [INF] Executed action "MVCProject.Controllers.AccountController.Login (MVCProject)" in 1.7456ms (afa2e885)
+2018-05-29T12:03:34.5109160+03:00 0HLE58A7GE1IR:0000000A [INF] Request finished in 2.4346ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:03:39.3474630+03:00 0HLE58A7GE1IR:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:53443/Account/Login   (ca22a1cb)
+2018-05-29T12:03:39.3480154+03:00 0HLE58A7GE1IR:0000000B [INF] Executing action method "MVCProject.Controllers.AccountController.Login (MVCProject)" with arguments ([""]) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:03:39.3481836+03:00 0HLE58A7GE1IR:0000000B [INF] Executing ViewResult, running view at path "/Views/Account/Login.cshtml". (9707eebe)
+2018-05-29T12:03:39.3492345+03:00 0HLE58A7GE1IR:0000000B [INF] Executed action "MVCProject.Controllers.AccountController.Login (MVCProject)" in 1.3908ms (afa2e885)
+2018-05-29T12:03:39.3493790+03:00 0HLE58A7GE1IR:0000000B [INF] Request finished in 1.9692ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:04:03.4351979+03:00 0HLE58A7GE1IR:0000000C [INF] Request starting HTTP/1.1 POST http://localhost:53443/Account/Login application/x-www-form-urlencoded 252 (ca22a1cb)
+2018-05-29T12:04:03.4737725+03:00 0HLE58A7GE1IR:0000000C [INF] Executing action method "MVCProject.Controllers.AccountController.Login (MVCProject)" with arguments (["MVCProject.ViewModels.LoginViewModel"]) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:04:03.4800018+03:00 0HLE58A7GE1IR:0000000C [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-05-29T12:04:03.4811987+03:00 0HLE58A7GE1IR:0000000C [INF] Executed DbCommand ("0"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Birthdate], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailChecher], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[Name], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Surname], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2018-05-29T12:04:03.6396521+03:00 0HLE58A7GE1IR:0000000C [INF] Executed DbCommand ("1"ms) [Parameters=["@__user_Id_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AspNetUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2018-05-29T12:04:03.7351917+03:00 0HLE58A7GE1IR:0000000C [INF] Executed DbCommand ("32"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2018-05-29T12:04:03.7490310+03:00 0HLE58A7GE1IR:0000000C [INF] Executed DbCommand ("1"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [AspNetRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2018-05-29T12:04:03.7762424+03:00 0HLE58A7GE1IR:0000000C [INF] Executed DbCommand ("1"ms) [Parameters=["@__role_Id_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AspNetRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2018-05-29T12:04:03.7959688+03:00 0HLE58A7GE1IR:0000000C [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2018-05-29T12:04:03.7963209+03:00 0HLE58A7GE1IR:0000000C [INF] Executing RedirectResult, redirecting to "/". (d98d540e)
+2018-05-29T12:04:03.7964467+03:00 0HLE58A7GE1IR:0000000C [INF] Executed action "MVCProject.Controllers.AccountController.Login (MVCProject)" in 345.4339ms (afa2e885)
+2018-05-29T12:04:03.7965882+03:00 0HLE58A7GE1IR:0000000C [INF] Request finished in 361.5061ms 302  (791a596a)
+2018-05-29T12:04:03.8011735+03:00 0HLE58A7GE1IR:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:53443/   (ca22a1cb)
+2018-05-29T12:04:03.8015939+03:00 0HLE58A7GE1IR:0000000D [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:04:03.8018032+03:00 0HLE58A7GE1IR:0000000D [INF] Executing action method "MVCProject.Controllers.HomeController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:04:03.8018897+03:00 0HLE58A7GE1IR:0000000D [INF] HomeController[Index] (30c3454f)
+2018-05-29T12:04:03.8020209+03:00 0HLE58A7GE1IR:0000000D [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2018-05-29T12:04:03.8028661+03:00 0HLE58A7GE1IR:0000000D [INF] Executed action "MVCProject.Controllers.HomeController.Index (MVCProject)" in 1.0905ms (afa2e885)
+2018-05-29T12:04:03.8029843+03:00 0HLE58A7GE1IR:0000000D [INF] Request finished in 1.8826ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:04:41.4628814+03:00 0HLE58A7GE1IR:0000000E [INF] Request starting HTTP/1.1 GET http://localhost:53443/   (ca22a1cb)
+2018-05-29T12:04:41.4634839+03:00 0HLE58A7GE1IR:0000000E [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:04:41.4637257+03:00 0HLE58A7GE1IR:0000000E [INF] Executing action method "MVCProject.Controllers.HomeController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:04:41.4638301+03:00 0HLE58A7GE1IR:0000000E [INF] HomeController[Index] (30c3454f)
+2018-05-29T12:04:41.5753664+03:00 0HLE58A7GE1IR:0000000E [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2018-05-29T12:04:41.5849603+03:00 0HLE58A7GE1IR:0000000E [INF] Executed action "MVCProject.Controllers.HomeController.Index (MVCProject)" in 121.2332ms (afa2e885)
+2018-05-29T12:04:41.5851045+03:00 0HLE58A7GE1IR:0000000E [INF] Request finished in 122.2779ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:04:41.7696801+03:00 0HLE58A7GE1IR:0000000F [INF] Request starting HTTP/1.1 GET http://localhost:53443/favicon.ico   (ca22a1cb)
+2018-05-29T12:04:41.7701045+03:00 0HLE58A7GE1IR:0000000F [INF] Sending file. Request path: '"/favicon.ico"'. Physical path: '"C:\VS Projects\MVCProject\MVCProject\wwwroot\favicon.ico"' (27b0a520)
+2018-05-29T12:04:41.7705784+03:00 0HLE58A7GE1IR:0000000F [INF] Request finished in 0.9348ms 200 image/x-icon (791a596a)
+2018-05-29T12:12:08.8923436+03:00 0HLE58A7GE1IS:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:53443/   (ca22a1cb)
+2018-05-29T12:12:08.8927818+03:00 0HLE58A7GE1IS:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:12:08.8929938+03:00 0HLE58A7GE1IS:00000001 [INF] Executing action method "MVCProject.Controllers.HomeController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:12:08.8930674+03:00 0HLE58A7GE1IS:00000001 [INF] HomeController[Index] (30c3454f)
+2018-05-29T12:12:09.0054198+03:00 0HLE58A7GE1IS:00000001 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2018-05-29T12:12:09.0138928+03:00 0HLE58A7GE1IS:00000001 [INF] Executed action "MVCProject.Controllers.HomeController.Index (MVCProject)" in 120.9039ms (afa2e885)
+2018-05-29T12:12:09.0140200+03:00 0HLE58A7GE1IS:00000001 [INF] Request finished in 121.7473ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:12:09.1865524+03:00 0HLE58A7GE1IS:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:53443/favicon.ico   (ca22a1cb)
+2018-05-29T12:12:09.1870023+03:00 0HLE58A7GE1IS:00000002 [INF] Sending file. Request path: '"/favicon.ico"'. Physical path: '"C:\VS Projects\MVCProject\MVCProject\wwwroot\favicon.ico"' (27b0a520)
+2018-05-29T12:12:09.1875306+03:00 0HLE58A7GE1IS:00000002 [INF] Request finished in 1.016ms 200 image/x-icon (791a596a)
+2018-05-29T12:12:31.2415977+03:00 0HLE58A7GE1IS:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:53443/Account/EmailConfirmAsync application/x-www-form-urlencoded 255 (ca22a1cb)
+2018-05-29T12:12:31.2422006+03:00 0HLE58A7GE1IS:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:12:31.2521318+03:00 0HLE58A7GE1IS:00000003 [INF] Executing action method "MVCProject.Controllers.AccountController.EmailConfirmAsync (MVCProject)" with arguments (["", ""]) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:12:31.2562514+03:00 0HLE58A7GE1IS:00000003 [INF] Executed action "MVCProject.Controllers.AccountController.EmailConfirmAsync (MVCProject)" in 4.335ms (afa2e885)
+2018-05-29T12:12:31.6938046+03:00 0HLE58A7GE1IS:00000003 [ERR] An unhandled exception has occurred while executing the request (cf926119)
+System.ArgumentNullException: Value cannot be null.
+Parameter name: email
+   at Microsoft.AspNetCore.Identity.UserManager`1.FindByEmailAsync(String email)
+   at MVCProject.Controllers.AccountController.<EmailConfirmAsync>d__6.MoveNext() in C:\VS Projects\MVCProject\MVCProject\Controllers\AccountController.cs:line 36
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__12.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeInnerFilterAsync>d__14.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeNextResourceFilter>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeFilterPipelineAsync>d__17.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeAsync>d__15.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.<Invoke>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.<Invoke>d__7.MoveNext()
+2018-05-29T12:12:31.8891111+03:00 0HLE58A7GE1IS:00000003 [INF] Request finished in 647.62ms 500 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:12:55.4848358+03:00 0HLE58A7GE1IS:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:53443/   (ca22a1cb)
+2018-05-29T12:12:55.4852200+03:00 0HLE58A7GE1IS:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:12:55.4854168+03:00 0HLE58A7GE1IS:00000004 [INF] Executing action method "MVCProject.Controllers.HomeController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:12:55.4854940+03:00 0HLE58A7GE1IS:00000004 [INF] HomeController[Index] (30c3454f)
+2018-05-29T12:12:55.4856270+03:00 0HLE58A7GE1IS:00000004 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2018-05-29T12:12:55.4863985+03:00 0HLE58A7GE1IS:00000004 [INF] Executed action "MVCProject.Controllers.HomeController.Index (MVCProject)" in 0.9959ms (afa2e885)
+2018-05-29T12:12:55.4865292+03:00 0HLE58A7GE1IS:00000004 [INF] Request finished in 1.7625ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:13:39.4982191+03:00 0HLE58HRKVHO8:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:53443/   (ca22a1cb)
+2018-05-29T12:13:39.8036568+03:00 0HLE58HRKVHO8:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:13:40.1052538+03:00 0HLE58HRKVHO8:00000001 [INF] Executing action method "MVCProject.Controllers.HomeController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:13:40.1097010+03:00 0HLE58HRKVHO8:00000001 [INF] HomeController[Index] (30c3454f)
+2018-05-29T12:13:43.1604820+03:00 0HLE58HRKVHO8:00000001 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2018-05-29T12:13:43.7962905+03:00 0HLE58HRKVHO8:00000001 [INF] Executed action "MVCProject.Controllers.HomeController.Index (MVCProject)" in 3733.7977ms (afa2e885)
+2018-05-29T12:13:43.8147402+03:00 0HLE58HRKVHO8:00000001 [INF] Request finished in 4358.0992ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:13:43.9481653+03:00 0HLE58HRKVHO8:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:53443/favicon.ico   (ca22a1cb)
+2018-05-29T12:13:43.9652603+03:00 0HLE58HRKVHO8:00000002 [INF] Sending file. Request path: '"/favicon.ico"'. Physical path: '"C:\VS Projects\MVCProject\MVCProject\wwwroot\favicon.ico"' (27b0a520)
+2018-05-29T12:13:43.9813450+03:00 0HLE58HRKVHO8:00000002 [INF] Request finished in 33.2488ms 200 image/x-icon (791a596a)
+2018-05-29T12:13:46.9234818+03:00 0HLE58HRKVHO8:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:53443/Account/EmailConfirmAsync application/x-www-form-urlencoded 255 (ca22a1cb)
+2018-05-29T12:13:46.9254278+03:00 0HLE58HRKVHO8:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:13:47.1233707+03:00 0HLE58HRKVHO8:00000003 [INF] Executing action method "MVCProject.Controllers.AccountController.EmailConfirmAsync (MVCProject)" with arguments (["", "lucklessfox@gmail.com"]) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:13:47.7909746+03:00 0HLE58HRKVHO8:00000003 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-05-29T12:13:53.6126081+03:00 0HLE58HRKVHO8:00000003 [INF] Executed DbCommand ("151"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Birthdate], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailChecher], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[Name], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Surname], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0" (0723d8ff)
+2018-05-29T12:13:53.7766101+03:00 0HLE58HRKVHO8:00000003 [INF] Executing RedirectResult, redirecting to "/Alert/EmailSuccess". (d98d540e)
+2018-05-29T12:13:53.7786801+03:00 0HLE58HRKVHO8:00000003 [INF] Executed action "MVCProject.Controllers.AccountController.EmailConfirmAsync (MVCProject)" in 6804.8879ms (afa2e885)
+2018-05-29T12:13:53.7863343+03:00 0HLE58HRKVHO8:00000003 [INF] Request finished in 6862.9457ms 302  (791a596a)
+2018-05-29T12:13:53.7918371+03:00 0HLE58HRKVHO8:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Alert/EmailSuccess   (ca22a1cb)
+2018-05-29T12:13:53.7922927+03:00 0HLE58HRKVHO8:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:13:53.7940812+03:00 0HLE58HRKVHO8:00000004 [INF] Executing action method "MVCProject.Controllers.AlertController.EmailSuccess (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:13:53.8974159+03:00 0HLE58HRKVHO8:00000004 [INF] Executing ViewResult, running view at path "/Views/Alert/EmailSuccess.cshtml". (9707eebe)
+2018-05-29T12:13:53.9030356+03:00 0HLE58HRKVHO8:00000004 [INF] Executed action "MVCProject.Controllers.AlertController.EmailSuccess (MVCProject)" in 109.1289ms (afa2e885)
+2018-05-29T12:13:53.9032074+03:00 0HLE58HRKVHO8:00000004 [INF] Request finished in 111.4426ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:14:36.8524063+03:00 0HLE58HRKVHO8:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Alert/EmailSuccess   (ca22a1cb)
+2018-05-29T12:14:36.8528551+03:00 0HLE58HRKVHO8:00000005 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:14:36.8542862+03:00 0HLE58HRKVHO8:00000005 [INF] Executing action method "MVCProject.Controllers.AlertController.EmailSuccess (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:14:36.8562157+03:00 0HLE58HRKVHO8:00000005 [INF] Executing ViewResult, running view at path "/Views/Alert/EmailSuccess.cshtml". (9707eebe)
+2018-05-29T12:14:36.8571206+03:00 0HLE58HRKVHO8:00000005 [INF] Executed action "MVCProject.Controllers.AlertController.EmailSuccess (MVCProject)" in 2.784ms (afa2e885)
+2018-05-29T12:14:36.8573107+03:00 0HLE58HRKVHO8:00000005 [INF] Request finished in 4.9562ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:14:37.0092909+03:00 0HLE58HRKVHO8:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:53443/favicon.ico   (ca22a1cb)
+2018-05-29T12:14:37.0098821+03:00 0HLE58HRKVHO8:00000006 [INF] Sending file. Request path: '"/favicon.ico"'. Physical path: '"C:\VS Projects\MVCProject\MVCProject\wwwroot\favicon.ico"' (27b0a520)
+2018-05-29T12:14:37.0105773+03:00 0HLE58HRKVHO8:00000006 [INF] Request finished in 1.3306ms 200 image/x-icon (791a596a)
+2018-05-29T12:14:39.1700862+03:00 0HLE58HRKVHO8:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Submission   (ca22a1cb)
+2018-05-29T12:14:39.1706869+03:00 0HLE58HRKVHO8:00000007 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:14:39.1820113+03:00 0HLE58HRKVHO8:00000007 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-05-29T12:14:39.2486887+03:00 0HLE58HRKVHO8:00000007 [INF] Executed DbCommand ("5"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Birthdate], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailChecher], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[Name], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Surname], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AspNetUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2018-05-29T12:14:39.2681354+03:00 0HLE58HRKVHO8:00000007 [INF] Executing action method "MVCProject.Controllers.SubmissionController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:14:39.3788827+03:00 0HLE58HRKVHO8:00000007 [INF] Executed DbCommand ("99"ms) [Parameters=["@__GetUserId_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DisciplineId], [x].[FinalMark], [x].[FirstMark], [x].[FirstMarkUserId], [x].[SecondMark], [x].[SecondMarkUserId], [x].[Text], [x].[ThirdMark], [x].[ThirdMarkUserId], [x].[Title], [x].[UserId]
+FROM [Submissions] AS [x]
+WHERE [x].[UserId] = @__GetUserId_0" (0723d8ff)
+2018-05-29T12:14:39.6815596+03:00 0HLE58HRKVHO8:00000007 [INF] Executing ViewResult, running view at path "/Views/Submission/Index.cshtml". (9707eebe)
+2018-05-29T12:14:39.6938340+03:00 0HLE58HRKVHO8:00000007 [INF] Executed action "MVCProject.Controllers.SubmissionController.Index (MVCProject)" in 520.6955ms (afa2e885)
+2018-05-29T12:14:39.6940723+03:00 0HLE58HRKVHO8:00000007 [INF] Request finished in 524.0552ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:14:41.0568480+03:00 0HLE58HRKVHO8:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Alert/EmailSuccess   (ca22a1cb)
+2018-05-29T12:14:41.0573848+03:00 0HLE58HRKVHO8:00000008 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:14:41.0576561+03:00 0HLE58HRKVHO8:00000008 [INF] Executing action method "MVCProject.Controllers.AlertController.EmailSuccess (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:14:41.0578221+03:00 0HLE58HRKVHO8:00000008 [INF] Executing ViewResult, running view at path "/Views/Alert/EmailSuccess.cshtml". (9707eebe)
+2018-05-29T12:14:41.0586655+03:00 0HLE58HRKVHO8:00000008 [INF] Executed action "MVCProject.Controllers.AlertController.EmailSuccess (MVCProject)" in 1.0682ms (afa2e885)
+2018-05-29T12:14:41.0588056+03:00 0HLE58HRKVHO8:00000008 [INF] Request finished in 2.0526ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:14:42.0298423+03:00 0HLE58HRKVHO8:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:53443/   (ca22a1cb)
+2018-05-29T12:14:42.0303595+03:00 0HLE58HRKVHO8:00000009 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:14:42.0307147+03:00 0HLE58HRKVHO8:00000009 [INF] Executing action method "MVCProject.Controllers.HomeController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:14:42.0308418+03:00 0HLE58HRKVHO8:00000009 [INF] HomeController[Index] (30c3454f)
+2018-05-29T12:14:42.0309976+03:00 0HLE58HRKVHO8:00000009 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2018-05-29T12:14:42.0326116+03:00 0HLE58HRKVHO8:00000009 [INF] Executed action "MVCProject.Controllers.HomeController.Index (MVCProject)" in 1.6737ms (afa2e885)
+2018-05-29T12:14:42.0330239+03:00 0HLE58HRKVHO8:00000009 [INF] Request finished in 3.1271ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:16:36.2590497+03:00 0HLE58JGAOVNF:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:53443/   (ca22a1cb)
+2018-05-29T12:16:36.6037532+03:00 0HLE58JGAOVNF:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:16:36.9008509+03:00 0HLE58JGAOVNF:00000001 [INF] Executing action method "MVCProject.Controllers.HomeController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:16:36.9051294+03:00 0HLE58JGAOVNF:00000001 [INF] HomeController[Index] (30c3454f)
+2018-05-29T12:16:39.8596347+03:00 0HLE58JGAOVNF:00000001 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2018-05-29T12:16:40.5310547+03:00 0HLE58JGAOVNF:00000001 [INF] Executed action "MVCProject.Controllers.HomeController.Index (MVCProject)" in 3673.1522ms (afa2e885)
+2018-05-29T12:16:40.5517632+03:00 0HLE58JGAOVNF:00000001 [INF] Request finished in 4330.1698ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:16:40.6810402+03:00 0HLE58JGAOVNF:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:53443/favicon.ico   (ca22a1cb)
+2018-05-29T12:16:40.6983953+03:00 0HLE58JGAOVNF:00000002 [INF] Sending file. Request path: '"/favicon.ico"'. Physical path: '"C:\VS Projects\MVCProject\MVCProject\wwwroot\favicon.ico"' (27b0a520)
+2018-05-29T12:16:40.7151824+03:00 0HLE58JGAOVNF:00000002 [INF] Request finished in 34.1921ms 200 image/x-icon (791a596a)
+2018-05-29T12:16:45.1585477+03:00 0HLE58JGAOVNF:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:53443/Account/EmailConfirmAsync application/x-www-form-urlencoded 255 (ca22a1cb)
+2018-05-29T12:16:45.1608150+03:00 0HLE58JGAOVNF:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:16:45.3545227+03:00 0HLE58JGAOVNF:00000003 [INF] Executing action method "MVCProject.Controllers.AccountController.EmailConfirmAsync (MVCProject)" with arguments (["", "lucklessfox@gmail.com"]) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:16:46.0100923+03:00 0HLE58JGAOVNF:00000003 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-05-29T12:16:52.2602081+03:00 0HLE58JGAOVNF:00000003 [INF] Executed DbCommand ("557"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Birthdate], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailChecher], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[Name], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Surname], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0" (0723d8ff)
+2018-05-29T12:16:53.8071057+03:00 0HLE58JGAOVNF:00000003 [INF] Executing RedirectResult, redirecting to "/Alert/EmailSendNotify". (d98d540e)
+2018-05-29T12:16:53.8090834+03:00 0HLE58JGAOVNF:00000003 [INF] Executed action "MVCProject.Controllers.AccountController.EmailConfirmAsync (MVCProject)" in 8601.6849ms (afa2e885)
+2018-05-29T12:16:53.8159883+03:00 0HLE58JGAOVNF:00000003 [INF] Request finished in 8657.5285ms 302  (791a596a)
+2018-05-29T12:16:53.8214145+03:00 0HLE58JGAOVNF:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Alert/EmailSendNotify   (ca22a1cb)
+2018-05-29T12:16:53.8219093+03:00 0HLE58JGAOVNF:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:16:53.8239614+03:00 0HLE58JGAOVNF:00000004 [INF] Executing action method "MVCProject.Controllers.AlertController.EmailSendNotify (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:16:53.9310422+03:00 0HLE58JGAOVNF:00000004 [INF] Executing ViewResult, running view at path "/Views/Alert/EmailSendNotify.cshtml". (9707eebe)
+2018-05-29T12:16:53.9366758+03:00 0HLE58JGAOVNF:00000004 [INF] Executed action "MVCProject.Controllers.AlertController.EmailSendNotify (MVCProject)" in 112.8915ms (afa2e885)
+2018-05-29T12:16:53.9369043+03:00 0HLE58JGAOVNF:00000004 [INF] Request finished in 115.518ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:17:02.3517517+03:00 0HLE58JGAOVNF:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Account/EmailConfirmAsync?a=6fb6caaf-80ce-4aaa-b524-dd8fdbc7be0d&data=lucklessfox@gmail.com   (ca22a1cb)
+2018-05-29T12:17:02.3522519+03:00 0HLE58JGAOVNF:00000005 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:17:02.3613942+03:00 0HLE58JGAOVNF:00000005 [INF] Executing action method "MVCProject.Controllers.AccountController.EmailConfirmAsync (MVCProject)" with arguments (["6fb6caaf-80ce-4aaa-b524-dd8fdbc7be0d", ""]) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:17:02.3641866+03:00 0HLE58JGAOVNF:00000005 [INF] Executed action "MVCProject.Controllers.AccountController.EmailConfirmAsync (MVCProject)" in 5.7465ms (afa2e885)
+2018-05-29T12:17:02.4452756+03:00 0HLE58JGAOVNF:00000005 [ERR] An unhandled exception has occurred while executing the request (cf926119)
+System.ArgumentNullException: Value cannot be null.
+Parameter name: email
+   at Microsoft.AspNetCore.Identity.UserManager`1.FindByEmailAsync(String email)
+   at MVCProject.Controllers.AccountController.<EmailConfirmAsync>d__6.MoveNext() in C:\VS Projects\MVCProject\MVCProject\Controllers\AccountController.cs:line 36
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__12.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeInnerFilterAsync>d__14.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeNextResourceFilter>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeFilterPipelineAsync>d__17.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeAsync>d__15.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.<Invoke>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.<Invoke>d__7.MoveNext()
+2018-05-29T12:17:02.6382264+03:00 0HLE58JGAOVNF:00000005 [INF] Request finished in 286.5748ms 500 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:18:02.4889879+03:00 0HLE58KA13M5O:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Account/EmailConfirmAsync?a=6fb6caaf-80ce-4aaa-b524-dd8fdbc7be0d&email=lucklessfox@gmail.com   (ca22a1cb)
+2018-05-29T12:18:02.7954310+03:00 0HLE58KA13M5O:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:18:03.2142279+03:00 0HLE58KA13M5O:00000001 [INF] Executing action method "MVCProject.Controllers.AccountController.EmailConfirmAsync (MVCProject)" with arguments (["6fb6caaf-80ce-4aaa-b524-dd8fdbc7be0d", "lucklessfox@gmail.com"]) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:18:03.8995457+03:00 0HLE58KA13M5O:00000001 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-05-29T12:18:09.9075225+03:00 0HLE58KA13M5O:00000001 [INF] Executed DbCommand ("490"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Birthdate], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailChecher], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[Name], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Surname], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0" (0723d8ff)
+2018-05-29T12:18:11.5946425+03:00 0HLE58KA13M5O:00000001 [INF] Executing RedirectResult, redirecting to "/Alert/EmailSendNotify". (d98d540e)
+2018-05-29T12:18:11.6112872+03:00 0HLE58KA13M5O:00000001 [INF] Executed action "MVCProject.Controllers.AccountController.EmailConfirmAsync (MVCProject)" in 8519.5144ms (afa2e885)
+2018-05-29T12:18:11.6741425+03:00 0HLE58KA13M5O:00000001 [INF] Request finished in 9218.3805ms 302  (791a596a)
+2018-05-29T12:18:11.6834012+03:00 0HLE58KA13M5O:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Alert/EmailSendNotify   (ca22a1cb)
+2018-05-29T12:18:11.6847265+03:00 0HLE58KA13M5O:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:18:11.6904766+03:00 0HLE58KA13M5O:00000002 [INF] Executing action method "MVCProject.Controllers.AlertController.EmailSendNotify (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:18:14.4915100+03:00 0HLE58KA13M5O:00000002 [INF] Executing ViewResult, running view at path "/Views/Alert/EmailSendNotify.cshtml". (9707eebe)
+2018-05-29T12:18:15.5023503+03:00 0HLE58KA13M5O:00000002 [INF] Executed action "MVCProject.Controllers.AlertController.EmailSendNotify (MVCProject)" in 3812.219ms (afa2e885)
+2018-05-29T12:18:15.5109384+03:00 0HLE58KA13M5O:00000002 [INF] Request finished in 3827.3729ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:18:38.3436111+03:00 0HLE58KA13M5O:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Account/EmailConfirmAsync?a=6fb6caaf-80ce-4aaa-b524-dd8fdbc7be0d&email=lucklessfox@gmail.com   (ca22a1cb)
+2018-05-29T12:18:38.3442648+03:00 0HLE58KA13M5O:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:18:38.3463960+03:00 0HLE58KA13M5O:00000003 [INF] Executing action method "MVCProject.Controllers.AccountController.EmailConfirmAsync (MVCProject)" with arguments (["6fb6caaf-80ce-4aaa-b524-dd8fdbc7be0d", "lucklessfox@gmail.com"]) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:18:38.3487771+03:00 0HLE58KA13M5O:00000003 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-05-29T12:18:38.3712808+03:00 0HLE58KA13M5O:00000003 [INF] Executed DbCommand ("5"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Birthdate], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailChecher], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[Name], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Surname], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0" (0723d8ff)
+2018-05-29T12:18:39.5748523+03:00 0HLE58KA13M5O:00000003 [INF] Executing RedirectResult, redirecting to "/Alert/EmailSendNotify". (d98d540e)
+2018-05-29T12:18:39.5750840+03:00 0HLE58KA13M5O:00000003 [INF] Executed action "MVCProject.Controllers.AccountController.EmailConfirmAsync (MVCProject)" in 1229.1622ms (afa2e885)
+2018-05-29T12:18:39.5753329+03:00 0HLE58KA13M5O:00000003 [INF] Request finished in 1231.8164ms 302  (791a596a)
+2018-05-29T12:18:39.5800809+03:00 0HLE58KA13M5O:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Alert/EmailSendNotify   (ca22a1cb)
+2018-05-29T12:18:39.5805418+03:00 0HLE58KA13M5O:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:18:39.5807855+03:00 0HLE58KA13M5O:00000004 [INF] Executing action method "MVCProject.Controllers.AlertController.EmailSendNotify (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:18:39.5834686+03:00 0HLE58KA13M5O:00000004 [INF] Executing ViewResult, running view at path "/Views/Alert/EmailSendNotify.cshtml". (9707eebe)
+2018-05-29T12:18:39.5856520+03:00 0HLE58KA13M5O:00000004 [INF] Executed action "MVCProject.Controllers.AlertController.EmailSendNotify (MVCProject)" in 4.9062ms (afa2e885)
+2018-05-29T12:18:39.5858751+03:00 0HLE58KA13M5O:00000004 [INF] Request finished in 5.817ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:20:31.3705204+03:00 0HLE58LMCTJSI:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Account/EmailConfirmAsync?a=6fb6caaf-80ce-4aaa-b524-dd8fdbc7be0d&email=lucklessfox@gmail.com   (ca22a1cb)
+2018-05-29T12:20:31.6854115+03:00 0HLE58LMCTJSI:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:20:32.1219151+03:00 0HLE58LMCTJSI:00000001 [INF] Executing action method "MVCProject.Controllers.AccountController.EmailConfirmAsync (MVCProject)" with arguments (["lucklessfox@gmail.com"]) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:20:32.8248455+03:00 0HLE58LMCTJSI:00000001 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-05-29T12:20:38.9532224+03:00 0HLE58LMCTJSI:00000001 [INF] Executed DbCommand ("404"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Birthdate], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailChecher], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[Name], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Surname], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0" (0723d8ff)
+2018-05-29T12:20:40.8392841+03:00 0HLE58LMCTJSI:00000001 [INF] Executing RedirectResult, redirecting to "/Alert/EmailSendNotify". (d98d540e)
+2018-05-29T12:20:40.8561559+03:00 0HLE58LMCTJSI:00000001 [INF] Executed action "MVCProject.Controllers.AccountController.EmailConfirmAsync (MVCProject)" in 8860.1295ms (afa2e885)
+2018-05-29T12:20:40.9160914+03:00 0HLE58LMCTJSI:00000001 [INF] Request finished in 9581.2098ms 302  (791a596a)
+2018-05-29T12:20:40.9215929+03:00 0HLE58LMCTJSI:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Alert/EmailSendNotify   (ca22a1cb)
+2018-05-29T12:20:40.9230200+03:00 0HLE58LMCTJSI:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:20:40.9269182+03:00 0HLE58LMCTJSI:00000002 [INF] Executing action method "MVCProject.Controllers.AlertController.EmailSendNotify (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:20:43.6339575+03:00 0HLE58LMCTJSI:00000002 [INF] Executing ViewResult, running view at path "/Views/Alert/EmailSendNotify.cshtml". (9707eebe)
+2018-05-29T12:20:44.6545624+03:00 0HLE58LMCTJSI:00000002 [INF] Executed action "MVCProject.Controllers.AlertController.EmailSendNotify (MVCProject)" in 3727.8352ms (afa2e885)
+2018-05-29T12:20:44.6603946+03:00 0HLE58LMCTJSI:00000002 [INF] Request finished in 3738.6821ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:23:09.2051271+03:00 0HLE58LMCTJSJ:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Account/EmailConfirmSuccess?a=6fb6caaf-80ce-4aaa-b524-dd8fdbc7be0d&email=lucklessfox@gmail.com   (ca22a1cb)
+2018-05-29T12:23:09.2056501+03:00 0HLE58LMCTJSJ:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:23:09.2149120+03:00 0HLE58LMCTJSJ:00000001 [INF] Executing action method "MVCProject.Controllers.AccountController.EmailConfirmSuccess (MVCProject)" with arguments (["6fb6caaf-80ce-4aaa-b524-dd8fdbc7be0d", "lucklessfox@gmail.com"]) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:23:09.2198156+03:00 0HLE58LMCTJSJ:00000001 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-05-29T12:23:09.2437365+03:00 0HLE58LMCTJSJ:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Birthdate], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailChecher], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[Name], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Surname], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0" (0723d8ff)
+2018-05-29T12:23:09.2779193+03:00 0HLE58LMCTJSJ:00000001 [INF] Executing RedirectResult, redirecting to "/Alert/EmailSuccess". (d98d540e)
+2018-05-29T12:23:09.2781710+03:00 0HLE58LMCTJSJ:00000001 [INF] Executed action "MVCProject.Controllers.AccountController.EmailConfirmSuccess (MVCProject)" in 66.4561ms (afa2e885)
+2018-05-29T12:23:09.2784061+03:00 0HLE58LMCTJSJ:00000001 [INF] Request finished in 73.3446ms 302  (791a596a)
+2018-05-29T12:23:09.2841816+03:00 0HLE58LMCTJSJ:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Alert/EmailSuccess   (ca22a1cb)
+2018-05-29T12:23:09.2845886+03:00 0HLE58LMCTJSJ:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:23:09.2861130+03:00 0HLE58LMCTJSJ:00000002 [INF] Executing action method "MVCProject.Controllers.AlertController.EmailSuccess (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:23:09.3935885+03:00 0HLE58LMCTJSJ:00000002 [INF] Executing ViewResult, running view at path "/Views/Alert/EmailSuccess.cshtml". (9707eebe)
+2018-05-29T12:23:09.3999219+03:00 0HLE58LMCTJSJ:00000002 [INF] Executed action "MVCProject.Controllers.AlertController.EmailSuccess (MVCProject)" in 113.8343ms (afa2e885)
+2018-05-29T12:23:09.4000763+03:00 0HLE58LMCTJSJ:00000002 [INF] Request finished in 115.9539ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:23:16.2921495+03:00 0HLE58LMCTJSJ:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Submission   (ca22a1cb)
+2018-05-29T12:23:16.2927139+03:00 0HLE58LMCTJSJ:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:23:16.2996082+03:00 0HLE58LMCTJSJ:00000003 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-05-29T12:23:16.3746922+03:00 0HLE58LMCTJSJ:00000003 [INF] Executed DbCommand ("2"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Birthdate], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailChecher], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[Name], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Surname], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AspNetUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2018-05-29T12:23:16.3934427+03:00 0HLE58LMCTJSJ:00000003 [INF] Executing action method "MVCProject.Controllers.SubmissionController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:23:16.4441613+03:00 0HLE58LMCTJSJ:00000003 [INF] Executed DbCommand ("39"ms) [Parameters=["@__GetUserId_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DisciplineId], [x].[FinalMark], [x].[FirstMark], [x].[FirstMarkUserId], [x].[SecondMark], [x].[SecondMarkUserId], [x].[Text], [x].[ThirdMark], [x].[ThirdMarkUserId], [x].[Title], [x].[UserId]
+FROM [Submissions] AS [x]
+WHERE [x].[UserId] = @__GetUserId_0" (0723d8ff)
+2018-05-29T12:23:16.7430426+03:00 0HLE58LMCTJSJ:00000003 [INF] Executing ViewResult, running view at path "/Views/Submission/Index.cshtml". (9707eebe)
+2018-05-29T12:23:16.7694302+03:00 0HLE58LMCTJSJ:00000003 [INF] Executed action "MVCProject.Controllers.SubmissionController.Index (MVCProject)" in 473.6288ms (afa2e885)
+2018-05-29T12:23:16.7695927+03:00 0HLE58LMCTJSJ:00000003 [INF] Request finished in 477.4976ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:28:59.1761540+03:00 0HLE58LMCTJSK:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:53443/Submission   (ca22a1cb)
+2018-05-29T12:28:59.1766729+03:00 0HLE58LMCTJSK:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:28:59.1785851+03:00 0HLE58LMCTJSK:00000001 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-05-29T12:28:59.5384702+03:00 0HLE58LMCTJSK:00000001 [INF] Executed DbCommand ("98"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Birthdate], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailChecher], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[Name], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Surname], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AspNetUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2018-05-29T12:28:59.5392926+03:00 0HLE58LMCTJSK:00000001 [INF] Executing action method "MVCProject.Controllers.SubmissionController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:28:59.5508297+03:00 0HLE58LMCTJSK:00000001 [INF] Executed DbCommand ("9"ms) [Parameters=["@__GetUserId_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[DisciplineId], [x].[FinalMark], [x].[FirstMark], [x].[FirstMarkUserId], [x].[SecondMark], [x].[SecondMarkUserId], [x].[Text], [x].[ThirdMark], [x].[ThirdMarkUserId], [x].[Title], [x].[UserId]
+FROM [Submissions] AS [x]
+WHERE [x].[UserId] = @__GetUserId_0" (0723d8ff)
+2018-05-29T12:28:59.5510541+03:00 0HLE58LMCTJSK:00000001 [INF] Executing ViewResult, running view at path "/Views/Submission/Index.cshtml". (9707eebe)
+2018-05-29T12:28:59.5519596+03:00 0HLE58LMCTJSK:00000001 [INF] Executed action "MVCProject.Controllers.SubmissionController.Index (MVCProject)" in 373.7386ms (afa2e885)
+2018-05-29T12:28:59.5521028+03:00 0HLE58LMCTJSK:00000001 [INF] Request finished in 376.0063ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-29T12:28:59.8993516+03:00 0HLE58LMCTJSK:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:53443/   (ca22a1cb)
+2018-05-29T12:28:59.8998818+03:00 0HLE58LMCTJSK:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-29T12:28:59.9026572+03:00 0HLE58LMCTJSK:00000002 [INF] Executing action method "MVCProject.Controllers.HomeController.Index (MVCProject)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-29T12:28:59.9060928+03:00 0HLE58LMCTJSK:00000002 [INF] HomeController[Index] (30c3454f)
+2018-05-29T12:29:00.0239980+03:00 0HLE58LMCTJSK:00000002 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2018-05-29T12:29:00.0329664+03:00 0HLE58LMCTJSK:00000002 [INF] Executed action "MVCProject.Controllers.HomeController.Index (MVCProject)" in 131.1185ms (afa2e885)
+2018-05-29T12:29:00.0330967+03:00 0HLE58LMCTJSK:00000002 [INF] Request finished in 133.8436ms 200 text/html; charset=utf-8 (791a596a)

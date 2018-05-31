@@ -46,10 +46,8 @@ namespace MVCProject.Controllers
         }
         public async Task<IActionResult> AddTask(string task_title, string task_text, string task_date)
         {
-            //return Content(task_date);
             Student teacher = await _userManager.GetUserAsync(User);
             string teacherId = teacher.Id;
-            //return Content(task_title + "=" + task_text);
             var arr = task_date.Split('-');
             int year = Convert.ToInt32(arr[0]);
             int month = Convert.ToInt32(arr[1]);

@@ -29,9 +29,9 @@ namespace MVCProject.Controllers
         public async Task<IActionResult> SetClaimAsync()
         {
             var user = await _userManager.GetUserAsync(User);
-            if (user == null) return Content("FUCK");
+            if (user == null) return Content("Bad");
             var claims = _userManager.AddClaimAsync(user, new Claim("IsEmailConfirmed", "true"));
-            return Content("Not FUCK");
+            return Content("Not bad");
         }
         public IActionResult GetClaim()
         {

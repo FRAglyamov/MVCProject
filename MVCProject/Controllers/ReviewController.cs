@@ -43,8 +43,12 @@ namespace MVCProject.Controllers
         [ReviewCheckFilter]
         public IActionResult Edit(int id)
         {
+            var submission = _context.Submissions.Where(x => x.Id == id).FirstOrDefault();
+            submission.isCheckedNow = true;
+            _context.SaveChanges();
             return View(_repo.Select(id));
         }
+
         public IActionResult Check(int id, string input_mark)
         {
 
@@ -87,6 +91,7 @@ namespace MVCProject.Controllers
                     double finalMark = (first + second + third) / 3.0;                    
                     submission.FinalMark = String.Format("{0:F3}", finalMark);
                 }
+                submission.isCheckedNow = false;
                 _context.SaveChanges();
             }
             return RedirectToAction("Index");

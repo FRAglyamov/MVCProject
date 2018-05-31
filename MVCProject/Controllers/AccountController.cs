@@ -31,10 +31,22 @@ namespace MVCProject.Controllers
             return View();
         }
 
-        public async Task<IActionResult> EmailConfirmAsync(string a, string data)
+        public async Task<IActionResult> EmailConfirmAsync(string email)
         {
-            var user = await _userManager.FindByEmailAsync(data);
+            var user = await _userManager.FindByEmailAsync(email);
             if(user != null)
+            {
+                EmailService es = new EmailService();
+                var host = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}";
+                await es.SendEmailAsync(user.Email, $"{host}/Account/EmailConfirmSuccess?a={user.Id}&email={user.Email}");
+                return RedirectToAction("EmailSendNotify", "Alert");
+            }
+            return RedirectToAction("EmailSuccess", "Alert");
+        }
+        public async Task<IActionResult> EmailConfirmSuccess(string a, string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user != null)
             {
                 user.EmailConfirmed = true;
                 _context.SaveChanges();
@@ -48,7 +60,6 @@ namespace MVCProject.Controllers
             if (ModelState.IsValid)
             {
                 Student user = new Student { Email = model.Email, UserName = model.Email, SecurityStamp = Guid.NewGuid().ToString() };
-                bool isCode = false;
                 // добавляем пользователя
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (model.InviteCode != null || model.InviteCode != "")
@@ -62,8 +73,6 @@ namespace MVCProject.Controllers
                         await _userManager.AddToRoleAsync(user, "admin");
                         //удаляем инвайт(т.к использован)
                         _context.Invites.Remove(invite);
-                        //флаг наличия кода
-                        isCode = true;
                     }
                     else
                     {
@@ -76,13 +85,7 @@ namespace MVCProject.Controllers
                 {
                     // установка куки
                     await _signInManager.SignInAsync(user, false);
-                    if (!isCode)
-                    {
-                        EmailService es = new EmailService();
-                        var host = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}";
-                        await es.SendEmailAsync(user.Email, $"{host}/Account/EmailConfirmAsync?a={user.Id}&data={user.Email}");
-                        return RedirectToAction("EmailSendNotify", "Alert");
-                    }
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
